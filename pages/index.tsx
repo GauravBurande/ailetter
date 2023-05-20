@@ -1,9 +1,11 @@
 import Head from 'next/head'
-import Header from '../components/Header'
 import ProductsList from '../components/ProductsList'
-import aitools from '../ai_tools'
+import aitools from '../ailetter database'
+import React from 'react'
 
 export default function Home() {
+
+  const toolsOnHomePage = aitools.filter(tool => tool.index < 21)
 
   return (
     <>
@@ -14,11 +16,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div>
-        <Header />
-
-        <ProductsList products={aitools} />
-      </div>
+      <React.Fragment>
+        <h2 className='md:pl-28 pl-12 pt-8 text-3xl font-semibold'>Latest Tools</h2>
+        <ProductsList products={toolsOnHomePage} />
+      </React.Fragment>
     </>
   )
 }
