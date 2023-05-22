@@ -7,6 +7,19 @@ export default function Home() {
 
   const toolsOnHomePage = aitools.filter(tool => tool.index < 21)
 
+  // // Specify the collection to query
+  // const collectionRef = db.collection('your-collection');
+
+  // // Perform the query and retrieve the top 20 documents
+  // const querySnapshot = await collectionRef
+  //   .orderBy('timestamp', 'desc') // Sorting by timestamp field in descending order
+  //   .limit(20) // Limiting the result to 20 documents
+  //   .get();
+
+  // // Access the documents from the query snapshot
+  // const topDocuments = querySnapshot.docs.map((doc) => doc.data());
+
+
   return (
     <>
       <Head>
@@ -17,7 +30,7 @@ export default function Home() {
       </Head>
 
       <React.Fragment>
-        <h2 className='md:pl-28 pl-12 pt-8 text-3xl font-semibold'>Latest Tools</h2>
+        <h2 className='md:pl-28 px-12 pt-8 text-3xl font-semibold'>Latest Tools</h2>
         <ProductsList products={toolsOnHomePage} />
       </React.Fragment>
     </>

@@ -1,4 +1,3 @@
-import * as React from "react";
 const svgLogo = (props) => (
     <svg width={50} viewBox="0 0 83.33333333333333 83.33333333333333" {...props}>
         <g
