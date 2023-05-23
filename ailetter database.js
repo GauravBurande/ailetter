@@ -52,7 +52,7 @@ const ailetterdb = [
     "title": "BrandBastion Lite",
     "image": "/assets/img/tools/brandbastion-lite.webp",
     "description": "Respond, hide and analyze all your comments from one place. Our AI analyzes sentiment, finds harmful engagement, and highlights messages that need a reply.",
-    "pricing": "Free trail",
+    "pricing": "Free trial",
     "visit-href": "https://www.brandbastion.com/lite?ref=ailetter",
     "category": [
       "Social Media"
@@ -88,7 +88,7 @@ const ailetterdb = [
     "title": "Affable.ai",
     "image": "/assets/img/tools/affable-ai.webp",
     "description": "Affable lets global brands, agencies & D2C e-Commerce brands find influencers, manage campaigns & measure ROI with ease! Verified Influencers. 100+ Clients. Get a Free Trial Today!",
-    "pricing": "Free trail",
+    "pricing": "Free trial",
     "visit-href": "https://www.affable.ai/?ref=ailetter",
     "category": [
       "Social Media"
@@ -123,7 +123,7 @@ const ailetterdb = [
     "index": 11,
     "title": "Editby",
     "image": "/assets/img/tools/editby.webp",
-    "description": "Looking to take your Twitter game to the next level? Posting content 100x faster with new, original ideas is easy with the AI-powered content creation tool from Editby. Simply follow best practices and methods to create content that resonates with your audience and watch your follower count grow!",
+    "description": "Looking to take your Twitter game to the next level? Posting content 100x faster with new, original ideas is easy with the AI-powered eCommerce tool from Editby. Simply follow best practices and methods to create content that resonates with your audience and watch your follower count grow!",
     "pricing": "Visit Site",
     "visit-href": "https://www.editby.ai/?ref=ailetter",
     "category": [
@@ -2760,16 +2760,15 @@ const ailetterdb = [
   },
   {
     "index": 217,
-    "title": "AISEO / AISEO ART",
-    "image": "/assets/img/tools/aiseo-aiseo-art.webp",
-    "description": "Aiseo is an AI tool that offers assistance in writing and paraphrasing. With a free Chrome extension and a community of over 50,000 users, it promises to enhance readability and generate quality content for SEO optimization. Aiseo supports 26+ languages and claims to help creators grow 10x faster by leveraging the power of AI. There is no pricing information available in the given extract.",
-    "pricing": "Freemium",
-    "visit-href": "https://aiseo.ai/?fpr=aitools&ref=ailetter",
+    "title": "FabFab AI",
+    "image": "/assets/img/tools/fabfab-ai.webp",
+    "description": "FabFab.ai - A One of a kind t-shirt. Designed just for you. That will never be reproduced. Design your own unique T-shirt with AI.",
+    "pricing": "Usage based",
+    "visit-href": "https://fabfab.ai/?ref=ailetter",
     "category": [
-      "Content Creation",
-      "SEO"
+      "Fashion"
     ],
-    "slug": "aiseo-aiseo-art"
+    "slug": "fabfab-ai"
   },
   {
     "index": 218,
@@ -2997,7 +2996,7 @@ const ailetterdb = [
     "title": "Evolup",
     "image": "/assets/img/tools/evolup.webp",
     "description": "Evolup is an AI-powered solution for creating affiliate stores. It allows users to create an affiliate site quickly without the need to manage inventory, orders, or after-sales services. Users can choose the products they are passionate about and earn commissions when customers finalize their purchases through their partner. With features like Amazon synchronization, advanced SEO, and AI-generated content, users can save time and costs while optimizing their affiliate site for maximum conversions. Some use cases include creating unique layouts using WiziBlocks, starting a blog on their affiliate store, and boosting their productivity with Evolup's AI-generated content.",
-    "pricing": "Free trail",
+    "pricing": "Free trial",
     "visit-href": "https://www.evolup.com/?ref=ailetter",
     "category": [
       "eCommerce",
@@ -8281,7 +8280,7 @@ const ailetterdb = [
     "visit-href": "https://revoldiv.com/?ref=ailetter",
     "category": [
       "Transcribe",
-      "Speech-to-Text"
+      "Text-and-peech"
     ],
     "slug": "revoldiv"
   },
@@ -11308,7 +11307,7 @@ const ailetterdb = [
     "visit-href": "https://synthesys.io/x/?ref=ailetter",
     "category": [
       "Images",
-      "Image Generation"
+      "Images"
     ],
     "slug": "synthesys-x"
   },
@@ -11385,7 +11384,7 @@ const ailetterdb = [
     "pricing": "Free",
     "visit-href": "https://pattern.cafe/?ref=ailetter",
     "category": [
-      "Image Generation",
+      "Images",
       "Art"
     ],
     "slug": "pattern-cafe"
@@ -11502,7 +11501,7 @@ const ailetterdb = [
     "pricing": "Free",
     "visit-href": "https://colab.research.google.com/github/ShivamShrirao/diffusers/blob/main/examples/dreambooth/DreamBooth_Stable_Diffusion.ipynb?ref=ailetter",
     "category": [
-      "Image Generation",
+      "Images",
       "Images"
     ],
     "slug": "dreambooth"
@@ -11566,7 +11565,7 @@ const ailetterdb = [
     "pricing": "Visit Site",
     "visit-href": "https://beta.dreamstudio.ai/dream?ref=ailetter",
     "category": [
-      "Image Generation",
+      "Images",
       "Art"
     ],
     "slug": "dream-studio"
@@ -11671,7 +11670,7 @@ const ailetterdb = [
     "visit-href": "https://imgupscaler.com/?ref=ailetter",
     "category": [
       "Images",
-      "Image Generation"
+      "Images"
     ],
     "slug": "img-upscaler"
   },
@@ -11917,7 +11916,7 @@ const ailetterdb = [
     "pricing": "Free",
     "visit-href": "https://stablecog.com/?ref=ailetter",
     "category": [
-      "Image Generation",
+      "Images",
       "Images"
     ],
     "slug": "stablecog"
@@ -11978,7 +11977,7 @@ const ailetterdb = [
     "title": "AiBert",
     "image": "/assets/img/tools/aibert.webp",
     "description": "Generate ChatGPT & MidJourney images directly via WhatsApp. Simply send a text to our WhatApp number to generate instant Chat GPT results and Midjourney images. Upscale and make variations by replying an emoji. 10 Free requests, then super cheap monthly or pay-as-you-go plans.",
-    "pricing": "Free trail",
+    "pricing": "Free trial",
     "visit-href": "https://aibert.co/?ref=ailetter",
     "category": [
       "Chat",
@@ -12086,7 +12085,7 @@ const ailetterdb = [
     "visit-href": "https://lucidpic.com/?ref=ailetter",
     "category": [
       "Images",
-      "Image Generation"
+      "Images"
     ],
     "slug": "lucidpic"
   },
@@ -12112,7 +12111,7 @@ const ailetterdb = [
     "visit-href": "https://www.bing.com/create?ref=ailetter",
     "category": [
       "Images",
-      "Image Generation"
+      "Images"
     ],
     "slug": "bing-image-creator"
   },
@@ -12955,7 +12954,7 @@ const ailetterdb = [
     "visit-href": "https://www.photoroom.com/backgrounds/?ref=ailetter",
     "category": [
       "Images",
-      "Image Generation"
+      "Images"
     ],
     "slug": "ai-background-generator-by-photoroom"
   },
@@ -13365,7 +13364,7 @@ const ailetterdb = [
     "visit-href": "https://www.extendimage.ai/?ref=ailetter",
     "category": [
       "Images",
-      "Image Generation"
+      "Images"
     ],
     "slug": "extendimage"
   },
@@ -13377,7 +13376,7 @@ const ailetterdb = [
     "pricing": "Free",
     "visit-href": "https://aiimag.es/?ref=ailetter",
     "category": [
-      "Image Generation",
+      "Images",
       "Images"
     ],
     "slug": "aiimages"
@@ -14077,7 +14076,7 @@ const ailetterdb = [
     "title": "Freshly.ai",
     "image": "/assets/img/tools/freshly-ai.webp",
     "description": "Get free stock reports (re: AI integration efforts/potential) in seconds powered by gpt3.5-turbo For more info, read the in depth article on AI by Evan Armstrong --> AI Looks Like a Bubble",
-    "pricing": "Free trail",
+    "pricing": "Free trial",
     "visit-href": "http://freshly.ai/?ref=ailetter",
     "category": [
       "Finance"
@@ -16231,7 +16230,7 @@ const ailetterdb = [
     "pricing": "Free",
     "visit-href": "https://deepai.org/machine-learning-model/text2img?ref=ailetter",
     "category": [
-      "Image Generation",
+      "Images",
       "Text-to-Image"
     ],
     "slug": "text-to-image-api"
@@ -17163,7 +17162,7 @@ const ailetterdb = [
     "title": "Amazon CodeWhisperer",
     "image": "/assets/img/tools/amazon-codewhisperer.webp",
     "description": "ML-powered coding companion – Amazon CodeWhisperer – Amazon Web Services",
-    "pricing": "Free trail",
+    "pricing": "Free trial",
     "visit-href": "https://aws.amazon.com/codewhisperer/?ref=ailetter",
     "category": [
       "Development",
@@ -17344,7 +17343,7 @@ const ailetterdb = [
     "index": 1356,
     "title": "NocodeBooth",
     "image": "/assets/img/tools/nocodebooth.webp",
-    "description": "NocodeBooth is a Nocode web app template which allows you allows you to launch your own AI Image Generation with payments and fully responsive design.",
+    "description": "NocodeBooth is a Nocode web app template which allows you allows you to launch your own AI Images with payments and fully responsive design.",
     "pricing": "Freemium",
     "visit-href": "https://www.nocodebooth.com/?ref=ailetter",
     "category": [
@@ -17436,7 +17435,7 @@ const ailetterdb = [
     "title": "SmartScout",
     "image": "/assets/img/tools/smartscout.webp",
     "description": "Creating listings that customers and Amazon algorithms love just got a lot easier with AI Listing Architect. With this tool, you can create optimized listings in minutes!",
-    "pricing": "Free trail",
+    "pricing": "Free trial",
     "visit-href": "https://www.smartscout.com/ai-listing-architect?ref=ailetter",
     "category": [
       "Development",
@@ -21486,7 +21485,7 @@ const ailetterdb = [
     "title": "TheLoops",
     "image": "/assets/img/tools/theloops.webp",
     "description": "Go from point solutions & data silos to our powerful AI for CX platform. TheLoops provides agent quality monitoring, voice of customer analysis, real-time troubleshooting & more.",
-    "pricing": "Free trail",
+    "pricing": "Free trial",
     "visit-href": "https://theloops.io/?ref=ailetter",
     "category": [
       "Business",
@@ -21499,7 +21498,7 @@ const ailetterdb = [
     "title": "Yuma",
     "image": "/assets/img/tools/yuma.webp",
     "description": "Yuma is using ChatGPT to automate customer support. We integrate directly with help desk software and focus on helping large Shopify merchants deal with their high volume of support requests.",
-    "pricing": "Free trail",
+    "pricing": "Free trial",
     "visit-href": "https://yuma.ai/?ref=ailetter",
     "category": [
       "Business",
@@ -22260,7 +22259,7 @@ const ailetterdb = [
     "title": "Proformis AI",
     "image": "/assets/img/tools/proformis-ai.webp",
     "description": "Proformis is an AI-powered tool that helps users write effective and structured performance reviews. The tool guides the user through a 360° evaluation process, enabling them to set the tone, scope, and goals of the review. Using AI, Proformis helps to save hours of writing time, write higher quality reviews, and deliver superior structured results, which ultimately leads to improved team performance. Proformis offers three pricing plans - Starter, Standard, and Pro - and users can purchase credits to buy reviews.",
-    "pricing": "Free trail",
+    "pricing": "Free trial",
     "visit-href": "https://proformis.pro/?ref=ailetter",
     "category": [
       "Human Resources",
@@ -22302,7 +22301,7 @@ const ailetterdb = [
     "pricing": "Usage based",
     "visit-href": "https://prophotos.ai/?ref=ailetter",
     "category": [
-      "Image Generation",
+      "Images",
       "Avatar"
     ],
     "slug": "prophotos"
@@ -22355,7 +22354,7 @@ const ailetterdb = [
     "visit-href": "https://www.filmfaceai.com/?ref=ailetter",
     "category": [
       "Avatar",
-      "Image Generation"
+      "Images"
     ],
     "slug": "film-face"
   },
@@ -22511,7 +22510,7 @@ const ailetterdb = [
     "visit-href": "https://avatarai.me/?ref=ailetter",
     "category": [
       "Avatar",
-      "Image Generation"
+      "Images"
     ],
     "slug": "avatar-al"
   },
@@ -22791,7 +22790,7 @@ const ailetterdb = [
     "pricing": "Usage based",
     "visit-href": "https://passphoto.ai/?ref=ailetter",
     "category": [
-      "Image Generation",
+      "Images",
       "Profile Pictures"
     ],
     "slug": "passphoto"
@@ -22894,7 +22893,7 @@ const ailetterdb = [
     "pricing": "Free trial",
     "visit-href": "https://wellsaidlabs.com/?ref=ailetter",
     "category": [
-      "Text-to-Speech",
+      "Text-and-peech",
       "Audio"
     ],
     "slug": "wellsaidlabs"
@@ -22916,11 +22915,11 @@ const ailetterdb = [
     "index": 1792,
     "title": "Verbatik",
     "image": "/assets/img/tools/verbatik.webp",
-    "description": "Verbatik AI Text-to-Speech is a tool that uses advanced machine learning algorithms to generate natural-sounding speech from text. The tool boasts a library of over 600 AI voices available in 142 languages and accents, making it a great option for podcast creators, video tutorials, and presenters. The output can be exported in MP3 and WAV formats for commercial and broadcast use. Verbatik offers a range of pricing plans, from a free 1,000 character option up to a customizable plan for specific needs.",
+    "description": "Verbatik AI is a tool that uses advanced machine learning algorithms to generate natural-sounding speech from text. The tool boasts a library of over 600 AI voices available in 142 languages and accents, making it a great option for podcast creators, video tutorials, and presenters. The output can be exported in MP3 and WAV formats for commercial and broadcast use. Verbatik offers a range of pricing plans, from a free 1,000 character option up to a customizable plan for specific needs.",
     "pricing": "Free trial",
     "visit-href": "https://verbatik.com/?ref=ailetter",
     "category": [
-      "Text-to-speech",
+      "Text and Speech",
       "Audio"
     ],
     "slug": "verbatik"
@@ -22972,7 +22971,7 @@ const ailetterdb = [
     "pricing": "Usage based",
     "visit-href": "https://deepzen.io/?ref=ailetter",
     "category": [
-      "Text-to-speech",
+      "Text and Speech",
       "Audio"
     ],
     "slug": "deepzen"
@@ -22985,8 +22984,8 @@ const ailetterdb = [
     "pricing": "Visit Site",
     "visit-href": "https://speech.microsoft.com/portal?ref=ailetter",
     "category": [
-      "Text-To-Speech",
-      "Speech-to-Text"
+      "Audio",
+      "Text and Speech"
     ],
     "slug": "speech-studio"
   },
@@ -23102,7 +23101,7 @@ const ailetterdb = [
     "pricing": "Freemium",
     "visit-href": "https://beepbooply.com/?ref=ailetter",
     "category": [
-      "Text-to-Speech",
+      "Text and Speech",
       "Audio"
     ],
     "slug": "beepbooply"
@@ -23151,7 +23150,7 @@ const ailetterdb = [
     "title": "Noise Eraser",
     "image": "/assets/img/tools/noise-eraser.webp",
     "description": "A DeepWave's signature high-quality noise reduction APP. Thanks to AI, human voice and other sounds now can be easily separated. A convenient tool for content creators in noise removal and sound adjustment.",
-    "pricing": "Free trail",
+    "pricing": "Free trial",
     "visit-href": "https://eraserapp.dwave.cc/en?ref=ailetter",
     "category": [
       "Audio",
@@ -23206,8 +23205,8 @@ const ailetterdb = [
     "pricing": "Free",
     "visit-href": "https://ttsmaker.com/?ref=ailetter",
     "category": [
-      "Text-to-Speech",
-      "Voice"
+      "Text and Speech",
+      "Audio"
     ],
     "slug": "ttsmaker"
   },
@@ -23219,7 +23218,7 @@ const ailetterdb = [
     "pricing": "Freemium",
     "visit-href": "https://www.woofer.ai/?ref=ailetter",
     "category": [
-      "Speech-to-Text",
+      "Text and Speech",
       "Audio"
     ],
     "slug": "woofer-ai"
@@ -23245,7 +23244,7 @@ const ailetterdb = [
     "pricing": "Subscription",
     "visit-href": "https://fakeyou.com/?ref=ailetter",
     "category": [
-      "Text-to-Speech",
+      "Text and Speech",
       "Audio"
     ],
     "slug": "fakeyou"
@@ -23271,7 +23270,7 @@ const ailetterdb = [
     "pricing": "Freemium",
     "visit-href": "https://www.audyo.ai/?ref=ailetter",
     "category": [
-      "Text-to-Speech",
+      "Text and Speech",
       "Audio"
     ],
     "slug": "audyo"
@@ -23629,7 +23628,7 @@ const ailetterdb = [
     "pricing": "Freemium",
     "visit-href": "https://www.descript.com/overdub?lmref=qHwpAg&ref=ailetter",
     "category": [
-      "Text-to-Speech",
+      "Text and Speech",
       "Audio"
     ],
     "slug": "overdub"
@@ -23642,7 +23641,7 @@ const ailetterdb = [
     "pricing": "Subscription",
     "visit-href": "https://www.listnr.tech/?ref=ailetter",
     "category": [
-      "Text-to-Speech",
+      "Text and Speech",
       "Audio"
     ],
     "slug": "listnr"
@@ -24560,7 +24559,7 @@ const ailetterdb = [
     "pricing": "Freemium",
     "visit-href": "https://www.phantasmagoria.me/?ref=ailetter",
     "category": [
-      "Image Generation",
+      "Images",
       "Art"
     ],
     "slug": "phantasmagoria"
@@ -25215,7 +25214,7 @@ const ailetterdb = [
     "title": "Paraphraser",
     "image": "/assets/img/tools/paraphraser.webp",
     "description": "Paraphrase Tool with 15 FREE Modes for 100+ Languages - Rephrases Sentences, Rewords Paragraphs, Rewrites Essays, Checks Grammar and Eliminates Plagiarism",
-    "pricing": "Free trail",
+    "pricing": "Free trial",
     "visit-href": "https://paraphrasetool.com/?ref=ailetter",
     "category": [
       "Paraphraser",
@@ -25241,7 +25240,7 @@ const ailetterdb = [
     "title": "Writely",
     "image": "/assets/img/tools/writely.webp",
     "description": "Writely | Using AI to Improve Your Writing",
-    "pricing": "Free trail",
+    "pricing": "Free trial",
     "visit-href": "https://www.writelyai.com/?ref=ailetter",
     "category": [
       "Paraphraser",
@@ -25687,7 +25686,7 @@ const ailetterdb = [
     "title": "Moredeal AI Writer",
     "image": "/assets/img/tools/moredeal-ai-writer.webp",
     "description": "MDC is an AI-powered tool that provides content creators with services ranging from content creation to traffic growth and commercial monetization. Its AI Writer feature generates marketing copy using hundreds of ready-to-use templates for various content types such as blogs, social media profiles, and eCommerce product descriptions. Moredeal, another feature of MDC, helps maximize affiliate revenue by selecting high-converting products through AI and adding attractive product displays and Amazon affiliate links to enhance click-through rate.",
-    "pricing": "Free trail",
+    "pricing": "Free trial",
     "visit-href": "https://www.mdc.ai/?ref=ailetter",
     "category": [
       "Content Creation",
@@ -25843,7 +25842,7 @@ const ailetterdb = [
     "pricing": "Visit Site",
     "visit-href": "https://research.runwayml.com/gen2?ref=ailetter",
     "category": [
-      "Video Generation"
+      "Video"
     ],
     "slug": "runway-gen-2"
   },
@@ -25855,7 +25854,7 @@ const ailetterdb = [
     "pricing": "Freemium",
     "visit-href": "https://www.heygen.com/?ref=ailetter",
     "category": [
-      "Video Generation",
+      "Video",
       "Youtube"
     ],
     "slug": "heygen"
@@ -25946,7 +25945,7 @@ const ailetterdb = [
     "pricing": "Freemium",
     "visit-href": "https://dubverse.ai/?ref=ailetter",
     "category": [
-      "Text-to-Speech",
+      "Text and Speech",
       "Video"
     ],
     "slug": "dubverse"
@@ -26050,8 +26049,8 @@ const ailetterdb = [
     "pricing": "Freemium",
     "visit-href": "https://elai.io/?ref=ailetter",
     "category": [
-      "Text-to-Video",
-      "Video Generation"
+      "Text and Speech",
+      "Video"
     ],
     "slug": "elai-io"
   },
@@ -26126,8 +26125,8 @@ const ailetterdb = [
     "pricing": "Free",
     "visit-href": "https://alethea.ai/?ref=ailetter",
     "category": [
-      "Text-to-Character",
-      "Video Generation"
+      "Text and Speech",
+      "Video"
     ],
     "slug": "character-gpt"
   },
@@ -26379,7 +26378,7 @@ const ailetterdb = [
     "index": 2064,
     "title": "AI Studios",
     "image": "/assets/img/tools/ai-studios.webp",
-    "description": "Simply prepare your script and use our Text-to-Speech feature to receive your first AI video in 5 minutes or less. Create a Free AI Video. No credit card is required.",
+    "description": "Simply prepare your script and use our Text to Speech feature to receive your first AI video in 5 minutes or less. Create a Free AI Video. No credit card is required.",
     "pricing": "Freemium",
     "visit-href": "https://www.deepbrain.io/aistudios?ref=ailetter",
     "category": [
@@ -26883,7 +26882,7 @@ const ailetterdb = [
     "visit-href": "https://whisperize.me/?ref=ailetter",
     "category": [
       "Life Assistant",
-      "Speech-to-Text"
+      "Text and Speech"
     ],
     "slug": "whisperbot"
   },
@@ -26945,7 +26944,7 @@ const ailetterdb = [
     "pricing": "Free",
     "visit-href": "https://app.towords.io/?ref=ailetter",
     "category": [
-      "Speech-to-Text",
+      "Text and Speech",
       "Transcribe"
     ],
     "slug": "towords"
@@ -26958,7 +26957,7 @@ const ailetterdb = [
     "pricing": "Visit Site",
     "visit-href": "https://www.apple.com/in/apple-books/?ref=ailetter",
     "category": [
-      "Text-to-Speech"
+      "Text and Speech"
     ],
     "slug": "apple-books"
   },
@@ -26970,7 +26969,7 @@ const ailetterdb = [
     "pricing": "Free",
     "visit-href": "https://play.ad-auris.com/?ref=ailetter",
     "category": [
-      "Text-to-Speech"
+      "Text and Speech"
     ],
     "slug": "ad-auris"
   },
@@ -26982,7 +26981,7 @@ const ailetterdb = [
     "pricing": "Visit Site",
     "visit-href": "https://www.trysalient.com/?ref=ailetter",
     "category": [
-      "Text-to-Speech"
+      "Text and Speech"
     ],
     "slug": "salient"
   },
@@ -26994,7 +26993,7 @@ const ailetterdb = [
     "pricing": "Freemium",
     "visit-href": "https://aisofiya.com/?ref=ailetter",
     "category": [
-      "Text-to-Speech"
+      "Text and Speech"
     ],
     "slug": "ai-sofiya"
   },
@@ -27006,7 +27005,7 @@ const ailetterdb = [
     "pricing": "Freemium",
     "visit-href": "https://cybervoice.io/?ref=ailetter",
     "category": [
-      "Text-to-Speech"
+      "Text and Speech"
     ],
     "slug": "steosvoice"
   },
@@ -27018,7 +27017,7 @@ const ailetterdb = [
     "pricing": "Paid",
     "visit-href": "https://voicemaker.in/?ref=ailetter",
     "category": [
-      "Text-to-Speech"
+      "Text and Speech"
     ],
     "slug": "voicemaker"
   },
@@ -27030,7 +27029,7 @@ const ailetterdb = [
     "pricing": "Freemium",
     "visit-href": "https://blakify.com/?ref=ailetter",
     "category": [
-      "Text-to-Speech"
+      "Text and Speech"
     ],
     "slug": "blakify"
   },
@@ -27042,7 +27041,7 @@ const ailetterdb = [
     "pricing": "Visit Site",
     "visit-href": "https://article.audio/?ref=ailetter",
     "category": [
-      "Text-to-Speech"
+      "Text and Speech"
     ],
     "slug": "article-audio"
   },
@@ -27054,7 +27053,7 @@ const ailetterdb = [
     "pricing": "Free trial",
     "visit-href": "https://audioread.com/?ref=ailetter",
     "category": [
-      "Text-to-Speech"
+      "Text and Speech"
     ],
     "slug": "audioread"
   },
@@ -27066,7 +27065,7 @@ const ailetterdb = [
     "pricing": "Free trial",
     "visit-href": "https://celebvoice.my.canva.site/?ref=ailetter",
     "category": [
-      "Text-to-Speech",
+      "Text and Speech",
       "Fun"
     ],
     "slug": "celebrity-voice-changer-ai"
@@ -27079,24 +27078,279 @@ const ailetterdb = [
     "pricing": "Freemium",
     "visit-href": "https://www.descript.com/overdub?lmref=qHwpAg?ref=ailetter",
     "category": [
-      "Text-to-Speech",
+      "Text and Speech",
       "Audio"
     ],
     "slug": "overdub"
   },
-  // {
-  //   "index": 2120,
-  //   "title": "Overdub",
-  //   "image": "/assets/img/tools/overdub.webp",
-  //   "description": "Descript's Overdub is a text-to-speech tool that lets you create an ultra-realistic voice clone from one of their stock voices. You can blend the recorded voice with changes in tone and characteristics, and even overlay it on audio and video content. The AI tool's free account allows you to create a vocabulary for unlimited overdubs, while the pro account gives you access to multiple voices that fit your preferred style setting. Descript also provides editing, recording, transcription, publishing, and sharing services, along with AI-powered tools.",
-  //   "pricing": "Freemium",
-  //   "visit-href": "https://www.descript.com/overdub?lmref=qHwpAg?ref=ailetter",
-  //   "category": [
-  //     "Text-to-Speech",
-  //     "Audio"
-  //   ],
-  //   "slug": "overdub"
-  // },
+  {
+    "index": 2120,
+    "title": "Klart AI",
+    "image": "/assets/img/tools/klart-ai.webp",
+    "description": "The AI tool, ChatGPT AI Mail Assistant, is a Gmail add-on that uses the advanced language capabilities of OpenAI's GPT-4 model to streamline email communication. Its features include generating quick and accurate email responses, summarizing emails, translating messages, improving grammar and word drafts, and providing real-time support through ChatGPT within Gmail. It also has features to enhance professionalism, detect and analyze text beyond emotion and tone, and bridge the language gap with built-in translation in 13 languages.",
+    "pricing": "Free trial",
+    "visit-href": "https://www.chatgptservices.app/?ref=ailetter",
+    "category": [
+      "Email",
+      "Productivity"
+    ],
+    "slug": "klart-ai"
+  },
+  {
+    "index": 2121,
+    "title": "AI Interview Coach",
+    "image": "/assets/img/tools/ai-interview-coach.webp",
+    "description": "The AI interview coach is a tool designed to help job seekers prepare for interviews by providing relevant questions based on the job position they are applying for. It offers assistance for a wide range of job roles, including accounting,HR, .. and tech jobs, and covers topics such as backend, data science, design, product management, and more. Users can choose from different job positions and receive assistance in answering relevant interview questions.",
+    "pricing": "Free",
+    "visit-href": "https://techjobslondon.co.uk/interview-coach?ref=ailetter",
+    "category": [
+      "Job Search",
+      "Human Resources"
+    ],
+    "slug": "ai-interview-coach"
+  },
+  {
+    "index": 2122,
+    "title": "Inshopapp",
+    "image": "/assets/img/tools/inshopapp.webp",
+    "description": "Inshop is a fashion-focused shopping app that utilizes artificial intelligence to provide outfit suggestions from multiple stores. Users can swipe left or right to receive smart suggestions courtesy of the AI stylist. Inshop offers access to a variety of fashion brands such as ASOS and Nordstrom on one platform with new stores and brands added frequently. The app features a smart-browse function that allows users to imagine and create outfits with outside-the-box color combinations. Inshop also offers price drop notifications and personalized style suggestions based on past style choices.",
+    "pricing": "Free",
+    "visit-href": "https://www.inshopapp.net/?ref=ailetter",
+    "category": [
+      "Fashion",
+      "Business"
+    ],
+    "slug": "inshopapp"
+  },
+  {
+    "index": 2123,
+    "title": "Insyte AI",
+    "image": "/assets/img/tools/insyte-ai.webp",
+    "description": "Insyte is an AI-powered tool that allows users to create websites in seconds. It offers advanced options for website design, including pre-made templates and showcase websites. Insyte also includes AI-powered features such as health monitoring and proofreading. Users can upgrade to a pro plan for access to limitless creative options and advanced features. The tool allows users to extend their website's visual appeal with feature-rich sections, and access to the source code for customization and self-hosting.",
+    "pricing": "Usage based",
+    "visit-href": "https://www.insyte.tech/?ref=ailetter",
+    "category": [
+      "website builder",
+      "Business"
+    ],
+    "slug": "insyteai"
+  },
+  {
+    "index": 2124,
+    "title": "PDF.ai",
+    "image": "/assets/img/tools/pdf-ai.webp",
+    "description": "Pdf.ai is an AI-powered tool that allows users to chat with their PDF documents. It offers features like asking questions, getting summaries, finding information, and more. The tool is designed for various use cases, from legal agreements to financial reports. Users can easily upload their PDF documents and instantly get answers backed by sources extracted from their uploaded document.",
+    "pricing": "Freemium",
+    "visit-href": "https://pdf.ai/?ref=ailetter",
+    "category": [
+      "Document Search",
+      "Chatbots"
+    ],
+    "slug": "pdf-ai"
+  },
+  {
+    "index": 2125,
+    "title": "Prepsup",
+    "image": "/assets/img/tools/prepsup.webp",
+    "description": "Prepsup is an AI-powered quiz and flashcard generator that helps students to prepare confidently for exams. It allows users to create study sets based on their learning needs by adding topics, selecting education level, and language. The tool also generates custom flashcards and offers an AI quiz assistant to help boost confidence in oral exams.",
+    "pricing": "Free",
+    "visit-href": "https://www.prepsup.com/?ref=ailetter",
+    "category": [
+      "Education",
+      "Students"
+    ],
+    "slug": "prepsup"
+  },
+  {
+    "index": 2126,
+    "title": "Mancoding",
+    "image": "/assets/img/tools/mancoding.webp",
+    "description": "The tool is an AI-powered platform for generating digital artwork using stable diffusion. It offers a text-to-image diffusion model that produces high-quality realistic art based on given text descriptions. Users can easily transform words into incredible images using prompts, without having to browse through stock libraries. The platform provides unlimited creative options and owns full ownership of created artwork, making it suitable for social media posts, blogs, and projects.",
+    "pricing": "Free trial",
+    "visit-href": "https://mancoding.com/?ref=ailetter",
+    "category": [
+      "Art",
+      "Image Generation"
+    ],
+    "slug": "mancoding"
+  },
+  {
+    "index": 2127,
+    "title": "Sage",
+    "image": "/assets/img/tools/sage.webp",
+    "description": "Sage is an AI-powered personal health assistant that provides customized lifestyle recommendations through your favorite messaging app. It offers personalized advice on exercise, nutrition, stress management and sleep support to help you achieve your wellness goals. The tool also simplifies healthy eating by planning meals, providing custom shopping lists, and recommending workout activities suited to your fitness level. Users can track their daily activities, meals, and workouts to monitor progress and receive ongoing guidance.",
+    "pricing": "Free trial",
+    "visit-href": "https://labworks.ai/?ref=ailetter",
+    "category": [
+      "Health",
+      "Life Assistant"
+    ],
+    "slug": "sage"
+  },
+  {
+    "index": 2128,
+    "title": "Wayfind",
+    "image": "/assets/img/tools/wayfind.webp",
+    "description": "Wayfind is a travel planner that lets travelers build personalized itineraries in minutes, using an AI-powered recommendation engine to learn a user's preferences.",
+    "pricing": "Visit Site",
+    "visit-href": "https://www.wayfind.live/?ref=ailetter",
+    "category": [
+      "Travel",
+    ],
+    "slug": "wayfind"
+  },
+  {
+    "index": 2129,
+    "title": "Auto Seduction AI",
+    "image": "/assets/img/tools/auto-seduction-ai.webp",
+    "description": "The Auto Seduction AI is an AI-powered dating assistant that creates personalized messages for users to use on dating sites. The tool uses profile information and photos to craft messages that match the interests and lifestyle of potential matches. With features such as efficient texting and personalized message styles, users can manage multiple conversations easily.",
+    "pricing": "Waitlist",
+    "visit-href": "https://autoseductionai.com/?ref=ailetter",
+    "category": [
+      "Relationships",
+    ],
+    "slug": "auto-seduction-ai"
+  },
+  {
+    "index": 2130,
+    "title": "DragGAN",
+    "image": "/assets/img/tools/draggan.webp",
+    "description": "Drag Your GAN: Interactive Point-based Manipulation on the Generative Image Manifold. This will be a game changer for design work and image manipulation/editing software.",
+    "pricing": "Free",
+    "visit-href": "https://github.com/XingangPan/DragGAN?ref=ailetter",
+    "category": [
+      "Design",
+      "Image Editing",
+    ],
+    "slug": "draggan"
+  },
+  {
+    "index": 2131,
+    "title": "Evryface",
+    "image": "/assets/img/tools/evryface.webp",
+    "description": "The Evryfac AI Avatar and Photo Studio is an AI-powered solution for creating professional photos, avatars, and headshots from the comfort of your own home. The service is available on one platform and is GDPR-compliant and fully secure. The tool allows users to create stunning photos in just three simple steps and offers a satisfaction guarantee. It includes over 100 styles, generates human, dog, and cat avatars, and has a one-time payment option.",
+    "pricing": "Usage based",
+    "visit-href": "https://evryface.com/?ref=ailetter",
+    "category": [
+      "Avatar",
+    ],
+    "slug": "evryface"
+  },
+  {
+    "index": 2132,
+    "title": "AllWrite",
+    "image": "/assets/img/tools/allwrite.webp",
+    "description": "Allwrit is an AI-powered writing assistant tool that helps craft professional and engaging content to capture the audience's attention. It simplifies writing, saves time, and can easily produce high-quality content that drives desired action. Allwrit's generates high-quality text for emails, blog posts or essays and it can be used anywhere without getting flagged by AI detector tools like Turnitin or GPTZero.",
+    "pricing": "Freemium",
+    "visit-href": "https://getallwrite.com/?ref=ailetter",
+    "category": [
+      "Writing",
+    ],
+    "slug": "allwrite"
+  },
+  {
+    "index": 2133,
+    "title": "SmartWriteAI",
+    "image": "/assets/img/tools/smartwriteai.webp",
+    "description": "Smartwriteai is an AI-powered content and image creation platform that offers a user-friendly interface and templates for businesses to create high-quality content efficiently. The tool generates unique, plagiarism-free content and allows customization to meet unique needs and preferences. Smartwriteai also offers writing assistance, AI image generation, speech-to-text, and chatbot.",
+    "pricing": "Freemium",
+    "visit-href": "https://smartwriteai.com/?ref=ailetter",
+    "category": [
+      "Content Creation",
+    ],
+    "slug": "smartwriteai"
+  },
+  {
+    "index": 2134,
+    "title": "LaraGPT",
+    "image": "/assets/img/tools/laragpt.webp",
+    "description": "LaraGPT helps you create SEO-optimized and unique content for your blogs, ads, emails, and website faster to save hours of work.",
+    "pricing": "Freemium",
+    "visit-href": "https://laragpt.com/?ref=ailetter",
+    "category": [
+      "Content Creation",
+      "SEO"
+    ],
+    "slug": "laragpt"
+  },
+  {
+    "index": 2135,
+    "title": "Store Copilot",
+    "image": "/assets/img/tools/store-copilot.webp",
+    "description": "The Store Copilot AI tool is designed to assist brands with creating a personalized shopping experience by communicating in the customer's language. It is available on the Shopify app store and offers features such as brand assistance and customer support.",
+    "pricing": "Waitlist",
+    "visit-href": "https://copilot.blanklob.com/?ref=ailetter",
+    "category": [
+      "eCommerce",
+      "Business"
+    ],
+    "slug": "store-copilot"
+  },
+  {
+    "index": 2136,
+    "title": "Store Copilot",
+    "image": "/assets/img/tools/store-copilot.webp",
+    "description": "The Store Copilot AI tool is designed to assist brands with creating a personalized shopping experience by communicating in the customer's language. It is available on the Shopify app store and offers features such as brand assistance and customer support.",
+    "pricing": "Waitlist",
+    "visit-href": "https://copilot.blanklob.com/?ref=ailetter",
+    "category": [
+      "eCommerce",
+      "Business"
+    ],
+    "slug": "store-copilot"
+  },
+  {
+    "index": 2137,
+    "title": "DocuWriter.Ai",
+    "image": "/assets/img/tools/docuwriter-ai.webp",
+    "description": "Docuwriter.ai is an AI-based power tool that automatically generates comprehensive and accurate source code files into well-organized documents with just one click. It supports multiple programming languages, making it suitable for diverse project teams. The tool offers various pricing plans that include different features such as file generation, GPT-4-powered multi-language support, historic generation, and document export options.",
+    "pricing": "Free trial",
+    "visit-href": "https://www.docuwriter.ai/?ref=ailetter",
+    "category": [
+      "Developer tools",
+      "Development"
+    ],
+    "slug": "docuwriter-ai"
+  },
+  {
+    "index": 2138,
+    "title": "Cocoleco",
+    "image": "/assets/img/tools/cocoleco.webp",
+    "description": "Cocoleco is an AI-driven Twitter assistant that helps you build your brand on Twitter effortlessly and grow your audience. It offers features such as AI-generated tweets, the ability to create unique and engaging tweets tailored to your audience, an easy approval process for tweets, and automatic publishing. Cocoleco also provides analytics to enhance your Twitter strategy with a comprehensive dashboard.",
+    "pricing": "Freemium",
+    "visit-href": "https://cocoleco.com/?ref=ailetter",
+    "category": [
+      "Social Media",
+      "Twitter",
+    ],
+    "slug": "cocoleco"
+  },
+  {
+    "index": 2139,
+    "title": "Kupiks",
+    "image": "/assets/img/tools/kupiks.webp",
+    "description": "Kupiks is an AI tool that automates email parsing for various types of data, such as custom inquiries, leads, and invoices. The tool eliminates the need for manual entry and saves valuable time while minimizing errors. Kupiks can extract key information such as customer name, email address, and inquiry details, as well as relevant order details and expense management data. The tool provides a simple and seamless solution for automating data entry and streamlining workflow.",
+    "pricing": "Visit Site",
+    "visit-href": "https://www.kupiks.com/?ref=ailetter",
+    "category": [
+      "Email",
+      "Automation",
+    ],
+    "slug": "kupiks"
+  },
+  {
+    "index": 2140,
+    "title": "GymBuddy",
+    "image": "/assets/img/tools/gymbuddy.webp",
+    "description": "Gymbuddy is an AI workout planner app that assigns appropriate exercises based on the user's fitness level and body focus. It allows users to create and schedule their workouts using an easy-to-use configuration screen. The app tracks progress and provides analytics to assess advancements and potential difficulties. Gymbuddy is built using the openAI ecosystem for the best workout recommendations. It is recommended that users consult a physician before starting any strenuous exercise.",
+    "pricing": "Freemium",
+    "visit-href": "https://www.gymbuddy.ai/?ref=ailetter",
+    "category": [
+      "Health",
+      "Fitness",
+    ],
+    "slug": "gymbuddy"
+  },
 ]
 
 export default ailetterdb

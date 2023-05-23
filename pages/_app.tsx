@@ -2,6 +2,7 @@ import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import Header from '../components/Header'
 import Navbar from '../components/Navbar'
+import DatabaseDocsCount from '../components/DatabaseDocsCount'
 import { useRouter } from 'next/router'
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -19,6 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
         {!is404Page && <Navbar />}
         {!toolpage && !is404Page && <Header />}
         <Component {...pageProps} />
+        {!toolpage && !is404Page && <DatabaseDocsCount />}
       </section>
     </>
   )

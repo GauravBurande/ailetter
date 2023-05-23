@@ -11,13 +11,41 @@ const Category = () => {
     const categorySlug = router.query.category
 
     const slugToCategory = {
-        "social-media": "Social Media",
+        "social-media": ["Social Media", "Content creation"],
+        "ai-detection": ["AI Detection",],
+        "art": ["Art", "no-code", "Startup tools", "Parenting", "3d"],
+        "audio": ["Audio", "Text and Speech", "Audio Editing",],
+        "avatars": ["Avatars",],
+        "business": ["Business", "Automation", "Job Search",],
+        "chat": ["Chat", "chatbots", "Chatbot", "Customer support",],
+        "coaching": ["Coaching",],
+        "design": ["Design",],
+        "data-analysis": ["Data Analysis",],
+        "development": ["Development", "Developer tools",],
+        "education": ["Education", "Human Resources",],
+        "email": ["Email",],
+        "finance": ["Finance",],
+        "gaming": ["Gaming",],
+        "images": ["Images", "Image Generation", "Image Editing"],
+        "legal": ["Legal",],
+        "marketing": ["Marketing",],
+        "music": ["Music",],
+        "podcasting": ["Podcasting",],
+        "productivity": ["Productivity",],
+        "prompt-guides": ["Prompt Guides",],
+        "research": ["Research",],
+        "seo": ["SEO",],
+        "speech": ["Speech", "Text and Speech"],
+        "translation": ["Translation",],
+        "video": ["Video", "video Generation"],
+        "writing": ["Writing", "Text and Speech"],
+        "Everyday-life": ["Travel", "Relationships", "Health", "Fitness", "Fashion"],
     }
     const category = slugToCategory[categorySlug]
 
     useEffect(() => {
         const fetchCategory = async () => {
-            const q = query(collection(db, "tools"), where("category", "array-contains", category));
+            const q = query(collection(db, "tools"), where("category", "array-contains-any", category));
 
             const querySnapshot = await getDocs(q);
             if (!querySnapshot) {
@@ -27,11 +55,11 @@ const Category = () => {
             let categoryTools = []
             querySnapshot.forEach((doc) => {
                 // doc.data() is never undefined for query doc snapshots
-                // console.log(doc.id, " => ", doc.data());
+                console.log(doc.id, " => ", doc.data());
                 categoryTools = [...categoryTools, { ...doc.data() }]
             });
             setCategoryTools(categoryTools)
-            // console.log(categoryTools)
+            console.log("from state variable", categoryTools)
         }
         category && fetchCategory()
         // eslint-disable-next-line react-hooks/exhaustive-deps

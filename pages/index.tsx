@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import ProductsList from '../components/ProductsList'
 import aitools from '../ailetter database'
-import React from 'react'
+import db from '../firebase'
+import { Fragment } from 'react'
 
 export default function Home() {
 
@@ -18,7 +19,7 @@ export default function Home() {
 
   // // Access the documents from the query snapshot
   // const topDocuments = querySnapshot.docs.map((doc) => doc.data());
-
+  // console.log(topDocuments)
 
   return (
     <>
@@ -29,10 +30,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <React.Fragment>
+      <Fragment>
         <h2 className='md:pl-28 px-12 pt-8 text-3xl font-semibold'>Latest Tools</h2>
         <ProductsList products={toolsOnHomePage} />
-      </React.Fragment>
+      </Fragment>
     </>
   )
 }
