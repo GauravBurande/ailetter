@@ -43,7 +43,7 @@ const Tool = () => {
 
     return (
         <Fragment>
-            <section className='p-10 flex flex-wrap justify-between items-start md:px-20'>
+            <section className='pr-10 pb-16 pl-8 sm:px-10 flex flex-wrap justify-between items-start md:px-20'>
                 <section className='md:w-[50vw] flex flex-col gap-10'>
                     <div className='flex items-center justify-center'>
                         <h1 className='text-4xl px-8 bg-orange-200 py-3 font-bold hover:bg-transparent hover:outline-dashed'>{tool.title}</h1>
@@ -65,11 +65,11 @@ const Tool = () => {
                     </div>
 
                     <div>
-                        <p>Pricing: <span className='hover:bg-orange-200 bg-gray-100 px-3 mb-1 inline-block'>{tool.pricing}</span></p>
+                        <p>Pricing: <span className='bg-orange-200 hover:bg-gray-100 px-3 mb-1 inline-block'>{tool.pricing}</span></p>
                         <div>tags: {tool.category.map((tag) => {
                             return (
                                 <div className='inline' key={tag}>
-                                    <div className='inline mr-2 px-3 whitespace-nowrap hover:bg-orange-200 bg-gray-100'>
+                                    <div className='inline mr-2 px-3 whitespace-nowrap bg-orange-200 hover:bg-gray-100'>
                                         {tag}
                                     </div>
                                 </div>

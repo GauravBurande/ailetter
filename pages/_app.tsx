@@ -20,7 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
         {!is404Page && <Navbar />}
         {!toolpage && !is404Page && <Header />}
         <Component {...pageProps} />
-        {!toolpage && !is404Page && <DatabaseDocsCount />}
+        {/* {!toolpage && !is404Page && <DatabaseDocsCount />} */}
       </section>
     </>
   )
