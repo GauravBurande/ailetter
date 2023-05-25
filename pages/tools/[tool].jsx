@@ -90,9 +90,6 @@ const Tool = ({ tool }) => {
 
                     {tool.image && <div>
                         <Image className='overflow-hidden w-full' alt={tool.title} src={`${!tool.image.includes("https://") ? "https://topai.tools" + tool.image : tool.image}`} width={400} height={400}
-                            onError={(e) => {
-                                e.target.src = "/images/dummytoolimage.jpg";
-                            }}
                         />
                     </div>}
 
