@@ -25,11 +25,11 @@ const ProductsList = ({ products }) => {
                                         <GoLinkExternal />
                                     </div>
                                 </a>
-                                <Link href={`/tools/${product.slug}`}>
-                                    <div>
-                                        <h4 className='md:text-xl text-lg hover:underline font-semibold'>{product.title}</h4>
-                                    </div>
-                                </Link>
+                                <div>
+                                    <Link href={`/tools/${product.slug}`}>
+                                        <h4 className='md:text-xl inline-block text-lg hover:underline font-semibold'>{product.title}</h4>
+                                    </Link>
+                                </div>
                                 <div className='w-full pt-2'>
                                     <p className='mb-3 pr-1 w-full line-clamp-3 leading-none'>{product.description}</p>
                                     <p>Pricing: <span className='hover:bg-orange-200 bg-gray-100 px-1 mb-1 inline-block'>{product.pricing}</span></p>
