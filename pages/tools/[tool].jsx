@@ -1,48 +1,87 @@
-import { useRouter } from 'next/router'
-import React, { useEffect, useState, Fragment } from 'react'
+// import { useRouter } from 'next/router'
+import React, { Fragment } from 'react'
 import db from '../../firebase'
 import Image from 'next/image'
 import { GoLinkExternal } from "react-icons/go"
 import { collection, query, where, getDocs } from "firebase/firestore";
+import Head from 'next/head'
 
-const Tool = () => {
+export const getStaticPaths = async () => {
 
-    const router = useRouter()
-    const toolSlug = router.query.tool
+    const querySnapshot = await getDocs(collection(db, "tools"));
 
-    const dummyTool = {
-        "index": 0,
-        "title": "loading",
-        "image": "",
-        "description": "loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading ",
-        "pricing": "loading",
-        "visit-href": "#",
-        "category": [
-            "Please",
-            "Wait"
-        ],
-        "slug": "loading",
+    let toolSlugs = []
+    querySnapshot.forEach((doc) => {
+        toolSlugs = [...toolSlugs, `/tools/${doc.data().slug}`]
+    });
+
+    return {
+        paths: toolSlugs,
+        fallback: false
     }
+}
 
-    const [tool, setTool] = useState(dummyTool)
+export const getStaticProps = async (context) => {
 
-    useEffect(() => {
-        const fetchTool = async () => {
-            const q = query(collection(db, "tools"), where("slug", "==", toolSlug));
+    const toolSlug = context.params.tool
+    console.log(toolSlug)
 
-            const querySnapshot = await getDocs(q);
-            querySnapshot.forEach((doc) => {
-                // doc.data() is never undefined for query doc snapshots
-                // console.log(doc.id, " => ", doc.data());
-                setTool(doc.data())
-            });
-        }
-        fetchTool()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [toolSlug])
+    const q = query(collection(db, "tools"), where("slug", "==", toolSlug));
+
+    let tool = {}
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+        tool = doc.data()
+    });
+
+    return {
+        props: { tool: tool }
+    }
+}
+
+const Tool = ({ tool }) => {
+
+    // const router = useRouter()
+    // const toolSlug = router.query.tool
+
+    // const dummyTool = {
+    //     "index": 0,
+    //     "title": "loading",
+    //     "image": "",
+    //     "description": "loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading ",
+    //     "pricing": "loading",
+    //     "visit-href": "#",
+    //     "category": [
+    //         "Please",
+    //         "Wait"
+    //     ],
+    //     "slug": "loading",
+    // }
+
+    // const [tool, setTool] = useState(dummyTool)
+
+    // useEffect(() => {
+    //     const fetchTool = async () => {
+    //         const q = query(collection(db, "tools"), where("slug", "==", toolSlug));
+
+    //         const querySnapshot = await getDocs(q);
+    //         querySnapshot.forEach((doc) => {
+    //             // doc.data() is never undefined for query doc snapshots
+    //             // console.log(doc.id, " => ", doc.data());
+    //             setTool(doc.data())
+    //         });
+    //     }
+    //     fetchTool()
+    //     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // }, [toolSlug])
 
     return (
         <Fragment>
+            <Head>
+                <title>{tool.title} - {tool.category[0]} ai tool</title>
+                <meta name="description" content={tool.description} />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+            </Head>
             <section className='pr-10 pb-16 pl-8 sm:px-10 flex flex-wrap justify-between items-start md:px-20'>
                 <section className='md:w-[50vw] flex flex-col gap-10'>
                     <div className='flex items-center justify-center'>
@@ -50,7 +89,11 @@ const Tool = () => {
                     </div>
 
                     {tool.image && <div>
-                        <Image className='overflow-hidden w-full' alt={tool.title} src={`${!tool.image.includes("https://") ? "https://topai.tools" + tool.image : tool.image}`} width={400} height={400} />
+                        <Image className='overflow-hidden w-full' alt={tool.title} src={`${!tool.image.includes("https://") ? "https://topai.tools" + tool.image : tool.image}`} width={400} height={400}
+                            onError={(e) => {
+                                e.target.src = "/images/dummytoolimage.jpg";
+                            }}
+                        />
                     </div>}
 
                     <a href={tool["visit-href"]} target='_blank'>
