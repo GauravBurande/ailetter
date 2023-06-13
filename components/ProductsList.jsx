@@ -18,10 +18,10 @@ const ProductsList = ({ products }) => {
                                     <Image className='absolute object-left object-cover h-full w-full overflow-hidden' alt={product.title} width={600} height={400} src={`${!product.image.includes("https://") ? "https://topai.tools" + product.image : product.image}`} />
                                 </Link>
                             </div>
-                            <div className='text-start relative w-full pl-5 md:w-3/5 py-2 text-sm flex justify-center flex-col bg-orange-200 hover:bg-transparent'>
+                            <div className='text-start relative w-full pl-3 md:w-3/5 py-2 text-sm flex justify-center flex-col bg-orange-200 hover:bg-transparent'>
                                 <a href={product["visit-href"]} target='_blank'>
-                                    <div className='absolute hover:text-orange-500 flex p-2 items-center justify-center top-0 right-2'>
-                                        <p>visit</p>
+                                    <div className='absolute hover:text-orange-500 flex p-2 items-center justify-center -top-1 right-0'>
+                                        {/* <p>visit</p> */}
                                         <GoLinkExternal />
                                     </div>
                                 </a>

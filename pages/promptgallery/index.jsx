@@ -1,0 +1,65 @@
+import Image from 'next/image'
+import Link from 'next/link'
+import React, { Fragment } from 'react'
+
+const PromptGallery = () => {
+
+    const promptCategories = [
+        {
+            "category": "Email Marketing",
+            "description": "Get good results with email marketing. Try these chatGPT prompts and get better results.",
+            "image": "/images/email marketing.jpg",
+            "pageLink": "/promptgallery/email-marketing"
+        },
+        {
+            "category": "Copywriting",
+            "description": "Get good with your copy. Try these chatGPT prompts and get copy for mostly everything.",
+            "image": "/images/copywriting.jpg",
+            "pageLink": "/promptgallery/copywriting"
+        },
+        {
+            "category": "Marketing",
+            "description": "Write a marketing campaign with ChatGPT. Try these prompts and get better results.",
+            "image": "/images/marketing.jpg",
+            "pageLink": "/promptgallery/marketing"
+        },
+        {
+            "category": "SEO",
+            "description": "Do keyword research, on-page SEO, & off-page SEO. Try these chatGPT prompts and get better results.",
+            "image": "/images/seo.jpg",
+            "pageLink": "/promptgallery/seo"
+        },
+        {
+            "category": "Writing",
+            "description": "Write blog posts with ChatGPT. Try these prompts and get better results.",
+            "image": "/images/writing.jpg",
+            "pageLink": "/promptgallery/writing"
+        },
+    ]
+
+    return (
+        <Fragment>
+            <section className='p-10 flex flex-wrap justify-center gap-10'>
+                {promptCategories.map((category) => {
+                    return (
+                        <div key={category.category} className='flex items-center justify-center'>
+                            <Link href={category.pageLink}>
+                                <div className='relative w-44 h-36'>
+                                    <Image className='absolute object-center object-cover h-full w-full overflow-hidden' src={category.image} alt={category.category} height={100} width={1000} />
+                                </div>
+                            </Link>
+                            <Link className='h-full' href={category.pageLink}>
+                                <div className='bg-orange-200 flex flex-col items-start justify-center pl-3 gap-3 w-full h-full'>
+                                    <h2 className='md:text-xl inline-block text-lg hover:underline font-semibold'>{category.category}</h2>
+                                    <p className='max-w-xs leading-none md:leading-normal text-sm'>{category.description}</p>
+                                </div>
+                            </Link>
+                        </div>
+                    )
+                })}
+            </section>
+        </Fragment>
+    )
+}
+
+export default PromptGallery

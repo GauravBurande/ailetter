@@ -3,12 +3,13 @@ import React, { Fragment } from 'react'
 import { collection, query, where, getDocs } from "firebase/firestore";
 import db from '../../firebase'
 import ProductsList from '../../components/ProductsList'
+import Head from 'next/head';
 
 const slugToCategory = {
     "ai-detection": ["AI Detection",],
-    "art": ["Art", "no-code", "Startup tools", "Parenting", "3d"],
+    "art": ["Art", "Parenting", "3d"],
     "audio": ["Audio", "Text and Speech", "Audio Editing",],
-    "avatars": ["Avatars",],
+    "avatar": ["Avatar", "Avatars"],
     "business": ["Business", "Automation", "Job Search",],
     "social-media": ["Social Media", "Content creation"],
     "chat": ["Chat", "chatbots", "Chatbot", "Customer support",],
@@ -33,7 +34,7 @@ const slugToCategory = {
     "translation": ["Translation",],
     "video": ["Video", "video Generation"],
     "writing": ["Writing", "Text and Speech"],
-    "Everyday-life": ["Travel", "Relationships", "Health", "Fitness", "Fashion"],
+    "everyday-life": ["Everyday Life", "Travel", "no-code", "Startup tools", "Relationships", "Health", "Fitness", "Fashion"],
 }
 
 export const getStaticPaths = async () => {
@@ -97,6 +98,11 @@ const Category = ({ categoryTools }) => {
 
     return (
         <Fragment>
+            <Head>
+                <title>{category[0]} AI Tools</title>
+                <meta name="description" content={`A list of best ${category[0]} tools`} />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+            </Head>
             <h1 className='md:pl-28 px-12 pt-8 text-3xl font-semibold'>{categoryTools.length !== 0 && <span>Top</span>} {categoryTools.length} {category[0]} AI Tools</h1>
             {
                 categoryTools.length !== 0

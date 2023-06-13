@@ -15,9 +15,13 @@ const Navbar = () => {
                     </Link>
 
                     {/* TODO: A menu here */}
-                    {/* <div className='fixed right-16'>
-                        <button className='bg-gray-800 text-sm hover:bg-transparent hover:outline-dashed hover:text-orange-500 text-white p-3'>submit a tool</button>
-                    </div> */}
+                    <div>
+                        <ul className='flex gap-6 items-center justify-center'>
+                            <Link href={'/promptgallery'} className='hover:underline text-lg hover:underline-offset-2'>PromptGallery</Link>
+                            <a className='hover:underline text-lg hover:underline-offset-2' href="https://ailetter.substack.com/" target='_blank'>visit Newsletter</a>
+                            {/* <button className='bg-gray-800 text-sm hover:bg-transparent hover:outline-dashed hover:text-orange-500 text-white p-3'>submit a tool</button> */}
+                        </ul>
+                    </div>
                 </div>
             </section>
         </React.Fragment>

@@ -5,23 +5,23 @@ import db from '../firebase'
 import { Fragment } from 'react'
 import { query, orderBy, limit, collection, getDocs } from "firebase/firestore";
 
-export const getStaticProps = async () => {
+// export const getStaticProps = async () => {
 
-  const q = query(collection(db, "tools"), orderBy("timestamp", "desc"), limit(20));
+//   const q = query(collection(db, "tools"), orderBy("timestamp", "desc"), limit(20));
 
-  const querySnapshot = await getDocs(q);
+//   const querySnapshot = await getDocs(q);
 
-  let toolz = []
-  querySnapshot.forEach((doc) => {
-    // doc.data() is never undefined for query doc snapshots
-    // console.log(doc.id, " => ", doc.data());
-    toolz = [...toolz, { ...doc.data() }]
-  });
+//   let toolz = []
+//   querySnapshot.forEach((doc) => {
+//     // doc.data() is never undefined for query doc snapshots
+//     // console.log(doc.id, " => ", doc.data());
+//     toolz = [...toolz, { ...doc.data() }]
+//   });
 
-  return {
-    props: { latestTools: toolz }
-  }
-}
+//   return {
+//     props: { latestTools: toolz }
+//   }
+// }
 
 export default function Home({ latestTools }) {
 
@@ -64,7 +64,7 @@ export default function Home({ latestTools }) {
 
       <Fragment>
         <h2 className='md:pl-28 px-12 pt-8 text-3xl font-semibold'>Latest Tools</h2>
-        <ProductsList products={latestTools} />
+        {/* <ProductsList products={latestTools} /> */}
         {/* <button className='p-4 absolute hover:bg-orange-500' onClick={getToolSlugs}>hello</button> */}
       </Fragment>
     </>

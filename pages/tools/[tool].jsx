@@ -101,7 +101,7 @@ const Tool = ({ tool }) => {
                     </a>
 
                     <div>
-                        <p>{tool.description}</p>
+                        <p className='outline-dashed p-3'>{tool.description}</p>
                     </div>
 
                     <div>

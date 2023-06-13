@@ -8,10 +8,10 @@ const AddTool = () => {
     // const batch = writeBatch(db);
 
     // const add2000tools = async () => {
-    //     for (const tool of aitools) {
-    //         const docRef = doc(db, "tools", tool.title);
-    //         batch.update(docRef, { "timestamp": 1684914083949 });
-    //         console.log(tool.index)
+    //     for (const tool of tools) {
+    //         const laRef = doc(db, "tools", tool);
+    //         batch.delete(laRef);
+    //         console.log(tool)
     //     }
 
     //     await batch.commit();
