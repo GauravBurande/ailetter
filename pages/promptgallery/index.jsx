@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { Fragment } from 'react'
@@ -39,16 +40,20 @@ const PromptGallery = () => {
 
     return (
         <Fragment>
+            <Head>
+                <title>Best directory of ChatGPT prompts</title>
+                <meta name="description" content="A list of top 1000+ prompts to use for businesses" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+            </Head>
+            <h1 className='text-3xl font-semibold p-10 text-center'>1000+ ChatGPT Prompts</h1>
             <section className='p-10 flex flex-wrap justify-center gap-10'>
                 {promptCategories.map((category) => {
                     return (
-                        <div key={category.category} className='flex items-center justify-center'>
-                            <Link href={category.pageLink}>
+                        <div key={category.category}>
+                            <Link className='flex h-full items-center justify-center' href={category.pageLink}>
                                 <div className='relative w-44 h-36'>
                                     <Image className='absolute object-center object-cover h-full w-full overflow-hidden' src={category.image} alt={category.category} height={100} width={1000} />
                                 </div>
-                            </Link>
-                            <Link className='h-full' href={category.pageLink}>
                                 <div className='bg-orange-200 flex flex-col items-start justify-center pl-3 gap-3 w-full h-full'>
                                     <h2 className='md:text-xl inline-block text-lg hover:underline font-semibold'>{category.category}</h2>
                                     <p className='max-w-xs leading-none md:leading-normal text-sm'>{category.description}</p>

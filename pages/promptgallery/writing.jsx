@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import PromptList from '../../components/PromptList';
+import Head from 'next/head';
 
 const Writing = () => {
 
@@ -63,6 +64,11 @@ const Writing = () => {
 
     return (
         <Fragment>
+            <Head>
+                <title>Best writing prompts for blogs</title>
+                <meta name="description" content="A list of top blog writing prompts for businesses" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+            </Head>
             <h1 className='px-10 text-3xl font-semibold pt-4'>ChatGPT prompts for blog writing</h1>
             <PromptList list={writingPrompts} />
         </Fragment>

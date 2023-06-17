@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import PromptList from '../../components/PromptList';
+import Head from 'next/head';
 
 const Copywriting = () => {
 
@@ -279,6 +280,11 @@ const Copywriting = () => {
 
     return (
         <Fragment>
+            <Head>
+                <title>Best copywriting prompts</title>
+                <meta name="description" content="A list of top copywriting prompts for businesses" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+            </Head>
             <h1 className='px-10 text-3xl font-semibold pt-4'>ChatGPT prompts for copywriting</h1>
             <PromptList list={copywritingPrompts} />
         </Fragment>

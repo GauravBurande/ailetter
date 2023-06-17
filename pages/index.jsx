@@ -57,7 +57,7 @@ export default function Home({ latestTools }) {
     <>
       <Head>
         <title>ailetter - Browse more than 2000 AI Tools</title>
-        <meta name="description" content="AI tools directory to find the best tools to help you using ai with more 2000 tools. Browse based on your favourite categories." />
+        <meta name="description" content="AI tools directory to find the best tools to help you using ai with more 2000 tools. Browse based on your favourite categories. 1000+ prompts for marketing, seo, and writing. Money making ideas by using new ai tools." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

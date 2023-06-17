@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import PromptList from '../../components/PromptList';
+import Head from 'next/head';
 
 const Seo = () => {
 
@@ -157,6 +158,11 @@ const Seo = () => {
 
     return (
         <Fragment>
+            <Head>
+                <title>Best seo prompts</title>
+                <meta name="description" content="A list of top seo prompts for businesses" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+            </Head>
             <h1 className='px-10 text-3xl font-semibold pt-4'>ChatGPT prompts for SEO</h1>
             <PromptList list={seoPrompts} />
             <h2 className='px-10 text-3xl font-semibold pt-4'>ChatGPT prompts for on-page SEO</h2>
