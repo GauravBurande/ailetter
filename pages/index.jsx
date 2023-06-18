@@ -57,13 +57,13 @@ export default function Home({ latestTools }) {
     <>
       <Head>
         <title>ailetter - Browse more than 2000 AI Tools</title>
-        <meta name="description" content="AI tools directory to find the best tools to help you using ai with more 2000 tools. Browse based on your favourite categories. 1000+ prompts for marketing, seo, and writing. Money making ideas by using new ai tools." />
+        <meta name="description" content="AI tools directory to find the best tools to help you using ai with more 2000 than tools. Browse based on your favourite categories. 1000+ prompts for marketing, seo, and writing. Money making ideas by using new ai tools." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
 
         {/* open graph social meta tag */}
         <meta property="og:title" content="ailetter" />
-        <meta property="og:description" content="AI tools directory to find the best tools to help you using ai with more 2000 tools. Browse based on your favourite categories. 1000+ prompts for marketing, seo, and writing. Money making ideas by using new ai tools." />
+        <meta property="og:description" content="AI tools directory to find the best tools to help you using ai with more 2000 than tools. Browse based on your favourite categories. 1000+ prompts for marketing, seo, and writing. Money making ideas by using new ai tools." />
         <meta property="og:url" content="https://www.ailetter.tech/" />
         <meta property="og:image" content="https://www.ailetter.tech/images/ailetter.png" />
         <meta property="og:type" content="website" />
@@ -71,7 +71,7 @@ export default function Home({ latestTools }) {
         {/* twitter card social meta tag */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="ailetter" />
-        <meta name="twitter:description" content="AI tools directory to find the best tools to help you using ai with more 2000 tools. Browse based on your favourite categories. 1000+ prompts for marketing, seo, and writing. Money making ideas by using new ai tools." />
+        <meta name="twitter:description" content="AI tools directory to find the best tools to help you using ai with more 2000 than tools. Browse based on your favourite categories. 1000+ prompts for marketing, seo, and writing. Money making ideas by using new ai tools." />
         <meta name="twitter:image" content="https://www.ailetter.tech/images/ailetter.png" />
       </Head>
 

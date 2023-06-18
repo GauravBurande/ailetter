@@ -31,7 +31,9 @@ const ProductsList = ({ products }) => {
                                     </Link>
                                 </div>
                                 <div className='w-full pt-2'>
-                                    <p className='mb-3 pr-1 w-full line-clamp-3 leading-none'>{product.description}</p>
+                                    <Link href={`/tools/${product.slug}`}>
+                                        <p className='mb-3 pr-1 w-full line-clamp-3 leading-none'>{product.description}</p>
+                                    </Link>
                                     <p>Pricing: <span className='hover:bg-orange-200 bg-gray-100 px-1 mb-1 inline-block'>{product.pricing}</span></p>
                                     <div>tags: {product.category.map((tag) => {
                                         return (
