@@ -11,7 +11,7 @@ const Submit = () => {
             "plan offerings": [
                 "listed on the latest tools section",
                 "it may take time due to queued submission reviews, the estimated waiting time is about 30+ days",
-                "no updates available"
+                "no updates available",
             ],
             "button call": "submit",
             "button url": "mailto:ailetter.substack@gmail.com?subject=Submit my tool to ailetter!",

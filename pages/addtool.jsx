@@ -5,12 +5,18 @@
 
 const AddTool = () => {
 
+    // const time = new Date()
+    // const timestamp = time.getTime();
+    // console.log(timestamp)
+
     // const batch = writeBatch(db);
 
-    // const add2000tools = async () => {
-    //     for (const tool of tools) {
-    //         const laRef = doc(db, "tools", tool);
-    //         batch.delete(laRef);
+    // before clicking addtool button, don't forget to add the tool in ailetter database.js file.
+
+    // const addTools = async () => {
+    //     for (const tool of aitools) {
+    //         const laRef = doc(db, "tools", tool.title);
+    //         batch.set(laRef, tool)
     //         console.log(tool)
     //     }
 
@@ -19,7 +25,7 @@ const AddTool = () => {
 
     return (
         <div className='h-[50vh] flex items-center justify-center'>
-            {/* <button onClick={add2000tools} className='bg-orange-400 p-3 hover:bg-transparent hover:outline-dashed'>add tool</button> */}
+            {/* <button onClick={addTools} className='bg-orange-400 p-3 hover:bg-transparent hover:outline-dashed'>add tool</button> */}
             YOU ARE NOT SUPPOSED TO BE HERE
         </div>
     )

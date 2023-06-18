@@ -16,7 +16,7 @@ const slugToCategory = {
     "coaching": ["Coaching",],
     "design": ["Design",],
     "data-analysis": ["Data Analysis",],
-    "development": ["Development", "Developer tools",],
+    "development": ["Development", "Developer tools", "Automation"],
     "education": ["Education", "Human Resources",],
     "email": ["Email",],
     "finance": ["Finance",],
@@ -32,7 +32,7 @@ const slugToCategory = {
     "seo": ["SEO",],
     "speech": ["Speech", "Text and Speech"],
     "translation": ["Translation",],
-    "video": ["Video", "video Generation"],
+    "video": ["Video", "video Generation", "Video Editing"],
     "writing": ["Writing", "Text and Speech"],
     "everyday-life": ["Everyday Life", "Travel", "no-code", "Startup tools", "Relationships", "Health", "Fitness", "Fashion"],
 }

@@ -7,7 +7,7 @@ import { query, orderBy, limit, collection, getDocs } from "firebase/firestore";
 
 export const getStaticProps = async () => {
 
-  const q = query(collection(db, "tools"), orderBy("timestamp", "desc"), limit(20));
+  const q = query(collection(db, "tools"), orderBy("index", "desc"), limit(20));
 
   const querySnapshot = await getDocs(q);
 
