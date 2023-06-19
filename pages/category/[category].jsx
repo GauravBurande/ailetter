@@ -10,7 +10,7 @@ const slugToCategory = {
     "art": ["Art", "Parenting", "3d"],
     "audio": ["Audio", "Text and Speech", "Audio Editing",],
     "avatar": ["Avatar", "Avatars"],
-    "business": ["Business", "Automation", "Job Search",],
+    "business": ["Business", "Automation", "Job Search", "Meeting assistant",],
     "social-media": ["Social Media", "Content creation"],
     "chat": ["Chat", "chatbots", "Chatbot", "Customer support",],
     "coaching": ["Coaching",],
@@ -23,7 +23,7 @@ const slugToCategory = {
     "gaming": ["Gaming",],
     "images": ["Images", "Image Generation", "Image Editing"],
     "legal": ["Legal",],
-    "marketing": ["Marketing",],
+    "marketing": ["Marketing", "Advertising"],
     "music": ["Music",],
     "podcasting": ["Podcasting",],
     "productivity": ["Productivity",],
@@ -34,7 +34,7 @@ const slugToCategory = {
     "translation": ["Translation",],
     "video": ["Video", "video Generation", "Video Editing"],
     "writing": ["Writing", "Text and Speech"],
-    "everyday-life": ["Everyday Life", "Travel", "no-code", "Startup tools", "Relationships", "Health", "Fitness", "Fashion"],
+    "everyday-life": ["Everyday Life", "Fun", "Travel", "no-code", "Startup tools", "Relationships", "Health", "Fitness", "Fashion"],
 }
 
 export const getStaticPaths = async () => {
