@@ -26,7 +26,7 @@ const Navbar = () => {
                         <div className='md:hidden'>
                             <HiOutlineMenu onClick={handleMenuClick} className='text-xl' />
                         </div>
-                        {displayMobileNav && <div className='absolute top-24 left-[7.5rem] sm:left-28 inset-0 md:hidden z-10'>
+                        {displayMobileNav && <div className='absolute top-24 left-[7.5rem] sm:left-28 md:hidden z-10'>
                             <ul className='flex min-w-[80vw] sm:min-w-[89vw] bg-orange-400 text-white p-8 -translate-x-20 flex-col text-lg gap-5 justify-center'>
                                 <Link href={'/promptgallery'} className='hover:underline hover:underline-offset-2'>PromptGallery</Link>
                                 <Link href={'/incomeideas'} className='hover:underline hover:underline-offset-2'>IncomeIdeas</Link>
