@@ -4,6 +4,7 @@ import { collection, query, where, getDocs } from "firebase/firestore";
 import db from '../../firebase'
 import ProductsList from '../../components/ProductsList'
 import Head from 'next/head';
+import CategoryComponent from '../../components/Category';
 
 const slugToCategory = {
     "ai-detection": ["AI Detection",],
@@ -103,6 +104,9 @@ const Category = ({ categoryTools }) => {
                 <meta name="description" content={`A list of best ${category[0]} tools`} />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
             </Head>
+
+            <CategoryComponent />
+
             <h1 className='md:pl-28 px-12 pt-8 text-3xl font-semibold'>{categoryTools.length !== 0 && <span>Top</span>} {categoryTools.length} {category[0]} AI Tools</h1>
             {
                 categoryTools.length !== 0

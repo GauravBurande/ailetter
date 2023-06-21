@@ -4,6 +4,8 @@ import ProductsList from '../components/ProductsList'
 import db from '../firebase'
 import { Fragment } from 'react'
 import { query, orderBy, limit, collection, getDocs } from "firebase/firestore";
+import Hero from '../components/Hero';
+import Category from '../components/Category';
 
 export const getStaticProps = async () => {
 
@@ -76,6 +78,8 @@ export default function Home({ latestTools }) {
       </Head>
 
       <Fragment>
+        <Hero />
+        <Category />
         <h2 className='md:pl-28 px-12 pt-8 text-3xl font-semibold'>Latest Tools</h2>
         <ProductsList products={latestTools} />
         {/* <button className='p-4 absolute hover:bg-orange-500' onClick={getToolSlugs}>hello</button> */}

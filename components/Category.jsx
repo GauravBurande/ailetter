@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
-import { BiFilter } from "react-icons/bi"
+import { TbTriangleFilled } from "react-icons/tb"
 
-const Header = () => {
+const Category = () => {
 
     const slugToCategory = {
         "everyday-life": "Everyday Life",
@@ -49,21 +49,11 @@ const Header = () => {
 
     return (
         <React.Fragment>
-            <section className='px-10 py-2 flex items-center flex-wrap lg:flex-nowrap justify-center gap-10'>
-                <div className='lg:w-1/4 relative w-full'>
-                    {/* eslint-disable-next-line react/no-unescaped-entities */}
-                    <p className='text-center pt-2 px-2'>Get to know what's happening in AI bubble. <span className='font-semibold'>subscribe to ailetter</span></p>
-                    <iframe className='w-full h-40' src="https://ailetter.substack.com/embed" frameBorder="0" scrolling="no"></iframe>
-                    <div className='bg-white -translate-y-11 h-8'></div>
-                </div>
-                <div className='w-full bg-[#F2F2E3] hover:bg-transparent text-center'>
-                    <h2 className='w-full text-3xl font-semibold md:text-7xl text-center py-8'>Collection of over 2000+ ai tools!</h2>
-                    <p className='pb-5 px-5'>Sponsor ailetter by submitting your tool and get featured on top here!</p>
-                </div>
-            </section>
-
             {!promptPage && <section className='flex flex-col'>
-                <button onClick={hanndleCategoryFilterDisplay} className='px-10 pt-3 md:hidden mx-auto flex w-fit underline underline-offset-4 text-lg font-semibold hover:text-orange-400'><BiFilter className='text-2xl' /> <p>categories</p></button>
+                <button onClick={hanndleCategoryFilterDisplay} className='px-10 pt-3 md:hidden mx-auto flex w-fit underline underline-offset-4 items-center justify-center gap-1 text-lg font-semibold hover:text-orange-400'>
+                    <p>categories</p>
+                    <TbTriangleFilled className={`text-2xl transition-all ${displayCategory && 'rotate-180'}`} />
+                </button>
                 <div className={`py-2 ${displayCategory && "flex"} ${!displayCategory && "hidden"} ${!displayCategory && "-translate-y-11"} md:flex transition-all md:translate-y-0 flex-wrap space-y-4 items-center text-center justify-center`}>
                     {Object.keys(slugToCategory).map((ObjectKey) => {
                         return (
@@ -78,4 +68,4 @@ const Header = () => {
     )
 }
 
-export default Header
+export default Category
