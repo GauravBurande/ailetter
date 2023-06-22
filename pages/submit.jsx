@@ -13,7 +13,7 @@ const Submit = () => {
                 "it may take time due to queued submission reviews, the estimated waiting time is about 30+ days",
                 "no updates available",
             ],
-            "button call": "submit",
+            "button call": "submitn now",
             "button url": "mailto:ailetter.substack@gmail.com?subject=Submit my tool to ailetter!",
         },
         {
@@ -51,7 +51,22 @@ const Submit = () => {
                 <title>submit ai tools on ailetter</title>
                 <meta name="description" content="Submit a tool, sponsor ailetter and get featured on our site and newlsetter." />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+                {/* open graph social meta tag */}
+                <meta property="og:title" content="submit ai tools on ailetter" />
+                <meta property="og:description" content="Submit a tool, sponsor ailetter and get featured on our site and newlsetter." />
+                <meta property="og:url" content="https://www.ailetter.tech/submit" />
+                <meta property="og:image" content="https://www.ailetter.tech/images/ailetter.png" />
+                <meta property="og:type" content="website" />
+
+                {/* twitter card social meta tag */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta property="twitter:url" content="https://www.ailetter.tech/submit" />
+                <meta name="twitter:title" content="submit ai tools on ailetter" />
+                <meta name="twitter:description" content="Submit a tool, sponsor ailetter and get featured on our site and newlsetter." />
+                <meta name="twitter:image" content="https://www.ailetter.tech/images/ailetter.png" />
             </Head>
+
             <div className='p-10'>
                 <h1 className='text-3xl font-semibold pb-10'>Submit a tool, sponsor ailetter and get featured on our site and newlsetter.</h1>
 

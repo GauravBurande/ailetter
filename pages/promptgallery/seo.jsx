@@ -162,7 +162,22 @@ const Seo = () => {
                 <title>Best seo prompts</title>
                 <meta name="description" content="A list of top seo prompts for businesses" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+                {/* open graph social meta tag */}
+                <meta property="og:title" content="Best seo prompts" />
+                <meta property="og:description" content="A list of top seo prompts for businesses" />
+                <meta property="og:url" content="https://www.ailetter.tech/promptgallery/seo" />
+                <meta property="og:image" content="https://www.ailetter.tech/images/seo.jpg" />
+                <meta property="og:type" content="website" />
+
+                {/* twitter card social meta tag */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta property="twitter:url" content="https://www.ailetter.tech/promptgallery/seo" />
+                <meta name="twitter:title" content="Best seo prompts" />
+                <meta name="twitter:description" content="A list of top seo prompts for businesses" />
+                <meta name="twitter:image" content="https://www.ailetter.tech/images/seo.jpg" />
             </Head>
+
             <h1 className='px-10 text-3xl font-semibold pt-4'>ChatGPT prompts for SEO</h1>
             <PromptList list={seoPrompts} />
             <h2 className='px-10 text-3xl font-semibold pt-4'>ChatGPT prompts for on-page SEO</h2>

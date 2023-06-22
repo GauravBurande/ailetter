@@ -48,7 +48,6 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
 
     const categorySlug = context.params.category
-    console.log(categorySlug)
 
     const category = slugToCategory[categorySlug]
 
@@ -100,9 +99,23 @@ const Category = ({ categoryTools }) => {
     return (
         <Fragment>
             <Head>
-                <title>{category[0]} AI Tools</title>
+                <title>{`${category[0]} AI Tools`}</title>
                 <meta name="description" content={`A list of best ${category[0]} tools`} />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+                {/* open graph social meta tag */}
+                <meta property="og:title" content={`${category[0]} AI Tools`} />
+                <meta property="og:description" content={`${category[0]} AI Tools - Browse latest ai tools to increase your efficiency and productivity`} />
+                <meta property="og:url" content={`https://www.ailetter.tech/category/${categorySlug}`} />
+                <meta property="og:image" content="https://www.ailetter.tech/images/ailetter.png" />
+                <meta property="og:type" content="website" />
+
+                {/* twitter card social meta tag */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta property="twitter:url" content={`https://www.ailetter.tech/category/${categorySlug}`} />
+                <meta name="twitter:title" content={`${category[0]} AI Tools`} />
+                <meta name="twitter:description" content={`${category[0]} AI Tools - Browse latest ai tools to increase your efficiency and productivity`} />
+                <meta name="twitter:image" content="https://www.ailetter.tech/images/ailetter.png" />
             </Head>
 
             <CategoryComponent />

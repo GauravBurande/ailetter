@@ -9,7 +9,7 @@ const PromptGallery = () => {
         {
             "category": "Email Marketing",
             "description": "Get good results with email marketing. Try these chatGPT prompts and get better results.",
-            "image": "/images/email marketing.jpg",
+            "image": "/images/email_marketing.jpg",
             "pageLink": "/promptgallery/email-marketing"
         },
         {
@@ -44,7 +44,22 @@ const PromptGallery = () => {
                 <title>Best directory of ChatGPT prompts</title>
                 <meta name="description" content="A list of top 1000+ prompts to use for businesses" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+                {/* open graph social meta tag */}
+                <meta property="og:title" content="Best directory of ChatGPT prompts" />
+                <meta property="og:description" content="A list of top 1000+ prompts to use for businesses" />
+                <meta property="og:url" content="https://www.ailetter.tech/promptgallery" />
+                <meta property="og:image" content="https://www.ailetter.tech/images/ailetter.png" />
+                <meta property="og:type" content="website" />
+
+                {/* twitter card social meta tag */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta property="twitter:url" content="https://www.ailetter.tech/promptgallery" />
+                <meta name="twitter:title" content="Best directory of ChatGPT prompts" />
+                <meta name="twitter:description" content="A list of top 1000+ prompts to use for businesses" />
+                <meta name="twitter:image" content="https://www.ailetter.tech/images/ailetter.png" />
             </Head>
+
             <h1 className='text-3xl font-semibold p-10 text-center'>1000+ ChatGPT Prompts</h1>
             <section className='p-10 flex flex-wrap justify-center gap-10'>
                 {promptCategories.map((category) => {

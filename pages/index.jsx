@@ -25,7 +25,7 @@ export const getStaticProps = async () => {
   }
 }
 
-export default function Home({ latestTools }) {
+export default function Home({ latestTools, featuredTools }) {
 
   // const [latestTools, setLatestTools] = useState([])
   // const router = useRouter()
@@ -72,6 +72,7 @@ export default function Home({ latestTools }) {
 
         {/* twitter card social meta tag */}
         <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://www.ailetter.tech/" />
         <meta name="twitter:title" content="ailetter" />
         <meta name="twitter:description" content="AI tools directory to find the best tools to help you using ai with more 2000 than tools. Browse based on your favourite categories. 1000+ prompts for marketing, seo, and writing. Money making ideas by using new ai tools." />
         <meta name="twitter:image" content="https://www.ailetter.tech/images/ailetter.png" />
@@ -80,6 +81,10 @@ export default function Home({ latestTools }) {
       <Fragment>
         <Hero />
         <Category />
+        {featuredTools.length !== 0 && <div>
+          <h2 className='md:pl-28 px-12 pt-8 text-3xl font-semibold'>Featured Tools</h2>
+          <ProductsList products={featuredTools} />
+        </div>}
         <h2 className='md:pl-28 px-12 pt-8 text-3xl font-semibold'>Latest Tools</h2>
         <ProductsList products={latestTools} />
         {/* <button className='p-4 absolute hover:bg-orange-500' onClick={getToolSlugs}>hello</button> */}

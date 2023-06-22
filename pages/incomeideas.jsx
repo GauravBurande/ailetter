@@ -84,7 +84,22 @@ const IncomeIdeas = () => {
                 <title>Income ideas using new ai tools</title>
                 <meta name="description" content="Money making ideas by using new ai tools." />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+                {/* open graph social meta tag */}
+                <meta property="og:title" content="Income ideas using new ai tools" />
+                <meta property="og:description" content="Money making ideas by using new ai tools." />
+                <meta property="og:url" content="https://www.ailetter.tech/incomeideas" />
+                <meta property="og:image" content="https://www.ailetter.tech/images/ailetter.png" />
+                <meta property="og:type" content="website" />
+
+                {/* twitter card social meta tag */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta property="twitter:url" content="https://www.ailetter.tech/incomeideas" />
+                <meta name="twitter:title" content="Income ideas using new ai tools" />
+                <meta name="twitter:description" content="Money making ideas by using new ai tools." />
+                <meta name="twitter:image" content="https://www.ailetter.tech/images/ailetter.png" />
             </Head>
+
             <h1 className='px-10 text-3xl font-semibold pt-4'>Making money using ai</h1>
             <p></p>
             <div className='flex items-center justify-center p-10 gap-10 flex-wrap'>

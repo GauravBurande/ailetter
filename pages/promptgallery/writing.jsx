@@ -68,7 +68,22 @@ const Writing = () => {
                 <title>Best writing prompts for blogs</title>
                 <meta name="description" content="A list of top blog writing prompts for businesses" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+                {/* open graph social meta tag */}
+                <meta property="og:title" content="Best writing prompts for blogs" />
+                <meta property="og:description" content="A list of top blog writing prompts for businesses" />
+                <meta property="og:url" content="https://www.ailetter.tech/promptgallery/writing" />
+                <meta property="og:image" content="https://www.ailetter.tech/images/writing.jpg" />
+                <meta property="og:type" content="website" />
+
+                {/* twitter card social meta tag */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta property="twitter:url" content="https://www.ailetter.tech/promptgallery/writing" />
+                <meta name="twitter:title" content="Best writing prompts for blogs" />
+                <meta name="twitter:description" content="A list of top blog writing prompts for businesses" />
+                <meta name="twitter:image" content="https://www.ailetter.tech/images/writing.jpg" />
             </Head>
+
             <h1 className='px-10 text-3xl font-semibold pt-4'>ChatGPT prompts for blog writing</h1>
             <PromptList list={writingPrompts} />
         </Fragment>

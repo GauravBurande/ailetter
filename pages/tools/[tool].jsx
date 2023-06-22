@@ -5,6 +5,9 @@ import Image from 'next/image'
 import { GoLinkExternal } from "react-icons/go"
 import { collection, query, where, getDocs } from "firebase/firestore";
 import Head from 'next/head'
+import { useRouter } from 'next/router';
+// import ProductsList from '../../components/ProductsList'
+import Link from 'next/link';
 
 export const getStaticPaths = async () => {
 
@@ -24,7 +27,6 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
 
     const toolSlug = context.params.tool
-    console.log(toolSlug)
 
     const q = query(collection(db, "tools"), where("slug", "==", toolSlug));
 
@@ -39,10 +41,10 @@ export const getStaticProps = async (context) => {
     }
 }
 
-const Tool = ({ tool }) => {
+const Tool = ({ tool, featuredTools }) => {
 
-    // const router = useRouter()
-    // const toolSlug = router.query.tool
+    const router = useRouter()
+    const toolSlug = router.query.tool
 
     // const dummyTool = {
     //     "index": 0,
@@ -78,29 +80,44 @@ const Tool = ({ tool }) => {
     return (
         <Fragment>
             <Head>
-                <title>{tool.title} - {tool.category[0]} ai tool</title>
+                <title>{`${tool.title} - ${tool.category[0]} ai tool`}</title>
                 <meta name="description" content={tool.description} />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+                {/* open graph social meta tag */}
+                <meta property="og:title" content={`${tool.title} - ${tool.category[0]} ai tool`} />
+                <meta property="og:description" content={tool.description} />
+                <meta property="og:url" content={`https://www.ailetter.tech/tools/${toolSlug}`} />
+                <meta property="og:image" content={`${!tool.image.includes("https://") ? "https://topai.tools" + tool.image : tool.image}`} />
+                <meta property="og:type" content="website" />
+
+                {/* twitter card social meta tag */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta property="twitter:url" content={`https://www.ailetter.tech/tools/${toolSlug}`} />
+                <meta name="twitter:title" content={`${tool.title} - ${tool.category[0]} ai tool`} />
+                <meta name="twitter:description" content={tool.description} />
+                <meta name="twitter:image" content={`${!tool.image.includes("https://") ? "https://topai.tools" + tool.image : tool.image}`} />
             </Head>
+
             <section className='pr-10 pb-16 pl-8 sm:px-10 flex flex-wrap justify-between items-start md:px-20'>
-                <section className='md:w-[50vw] flex flex-col gap-10'>
+                <section className='xl:w-[50vw] lg:w-[40vw] flex flex-col items-center justify-center gap-10'>
                     <div className='flex items-center justify-center'>
                         <h1 className='text-4xl px-8 bg-orange-200 py-3 font-bold hover:bg-transparent hover:outline-dashed'>{tool.title}</h1>
                     </div>
 
-                    {tool.image && <div>
+                    {tool.image && <div className='outline-double w-11/12 outline-8'>
                         <Image className='overflow-hidden w-full' alt={tool.title} src={`${!tool.image.includes("https://") ? "https://topai.tools" + tool.image : tool.image}`} width={400} height={400}
                         />
                     </div>}
 
-                    <a href={tool["visit-href"]} target='_blank'>
-                        <div className='flex p-2 gap-1 items-center justify-center outline-dashed text-orange-400 hover:text-black'>
+                    <a className='w-full' href={tool["visit-href"]} target='_blank'>
+                        <div className='flex p-2 gap-1 mx-auto w-11/12 items-center justify-center outline-dashed text-orange-400 hover:text-black'>
                             <p>visit {tool.title}</p>
                             <GoLinkExternal />
                         </div>
                     </a>
 
-                    <div>
+                    <div className='w-11/12'>
                         <p className='outline-dashed p-3 hover:text-orange-900'>{tool.description}</p>
                     </div>
 
@@ -118,10 +135,56 @@ const Tool = ({ tool }) => {
                     </div>
                 </section>
 
-                <section className='md:w-[30vw] pt-20 md:pt-0'>
-                    <h3 className='font-semibold text-3xl'>Featured Tools</h3>
-                    <section className='min-h-[40vh] flex items-center justify-center'>
-                        <p className='pb-5 text-xl px-5'>Sponsor ailetter by submitting your tool and get featured on top here!</p>
+                <section className='lg:w-[37vw] w-full pt-14 xl:pt-0'>
+                    {featuredTools.length !== 0 && <h3 className='font-semibold pb-10 text-3xl'>Try these tools</h3>}
+                    <section className='min-h-[40vh] w-full flex items-center justify-center'>
+                        {
+                            featuredTools.length !== 0
+                                ? <div className='w-full flex flex-col gap-10'>
+                                    {featuredTools.map((product) => {
+                                        return (
+                                            <section className='w-full border-black hover:outline-dashed hover:outline-orange-400' key={product.title}>
+                                                <div className='flex flex-col sm:flex-row w-full'>
+                                                    <div className='lg:w-4/5 h-40 md:h-[9.3rem] relative'>
+                                                        <Link href={`/tools/${product.slug}`}>
+                                                            <Image className='absolute object-left object-cover h-full w-full overflow-hidden' alt={product.title} width={600} height={400} src={`${!product.image.includes("https://") ? "https://topai.tools" + product.image : product.image}`} />
+                                                        </Link>
+                                                    </div>
+                                                    <div className='text-start relative w-full pl-3 py-2 text-sm flex justify-center flex-col bg-orange-200 hover:bg-transparent'>
+                                                        <a href={product["visit-href"]} target='_blank'>
+                                                            <div className='absolute hover:text-orange-500 flex p-2 items-center justify-center -top-1 right-0'>
+                                                                {/* <p>visit</p> */}
+                                                                <GoLinkExternal />
+                                                            </div>
+                                                        </a>
+                                                        <div>
+                                                            <Link href={`/tools/${product.slug}`}>
+                                                                <h4 className='md:text-xl inline-block text-lg hover:underline font-semibold'>{product.title}</h4>
+                                                            </Link>
+                                                        </div>
+                                                        <div className='w-full pt-2'>
+                                                            <Link href={`/tools/${product.slug}`}>
+                                                                <p className='mb-3 pr-1 w-full line-clamp-3 leading-none'>{product.description}</p>
+                                                            </Link>
+                                                            <p>Pricing: <span className='hover:bg-orange-200 bg-gray-100 px-1 mb-1 inline-block'>{product.pricing}</span></p>
+                                                            <div>tags: {product.category.map((tag) => {
+                                                                return (
+                                                                    <div className='inline' key={tag}>
+                                                                        <div className='inline mr-1 px-1 hover:bg-orange-200 bg-gray-100'>
+                                                                            {tag}
+                                                                        </div>
+                                                                    </div>
+                                                                )
+                                                            })}</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        )
+                                    })}
+                                </div>
+                                : <p className='pb-5 text-xl px-5'>Sponsor ailetter by submitting your tool and get featured on top here!</p>
+                        }
                     </section>
                 </section>
             </section>
