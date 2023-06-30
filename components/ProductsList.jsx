@@ -11,7 +11,7 @@ const ProductsList = ({ products }) => {
         <section className='flex flex-wrap gap-10 p-10 items-center justify-center'>
             {products.map((product) => {
                 return (
-                    <section className='md:w-5/12 w-full border-black hover:outline-dashed hover:outline-orange-400' key={product.title}>
+                    <section className='md:w-5/12 w-full outline-double outline-8 hover:outline-orange-400' key={product.title}>
                         <div className='flex flex-col sm:flex-row w-full'>
                             <div className='md:w-2/5 h-40 md:h-[9.3rem] relative'>
                                 <Link href={`/tools/${product.slug}`}>

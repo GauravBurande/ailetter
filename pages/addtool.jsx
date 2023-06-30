@@ -23,6 +23,10 @@ const AddTool = () => {
     //     await batch.commit();
     // }
 
+    // const getProductImage = async () => {
+    //     console.log("lol");
+    // }
+
     return (
         <Fragment>
             <Head>
@@ -44,11 +48,13 @@ const AddTool = () => {
                 <meta name="twitter:description" content="Add tool to ailetter - directory of more than 2000 tools, genereate backlinks and get more visitors" />
                 <meta name="twitter:image" content="https://www.ailetter.tech/images/ailetter.png" />
             </Head>
-            <div className='h-[50vh] flex flex-col gap-5 items-center justify-center'>
-                {/* <p>Before clicking addtool button, don&apos;t forget to add the tool in ailetter database.js file.</p>
-            <button onClick={addTools} className='bg-orange-400 p-3 hover:bg-transparent hover:outline-dashed'>add tool</button> */}
-                YOU ARE NOT SUPPOSED TO BE HERE
-            </div>
+            {/* <div className='h-[50vh] flex flex-col gap-5 items-center justify-center'>
+                <p>Before clicking addtool button, don&apos;t forget to add the tool in ailetter database.js file.</p>
+                <button onClick={addTools} className='bg-orange-400 p-3 hover:bg-transparent hover:outline-dashed'>add tool</button>
+                <button onClick={getProductImage} className='bg-orange-400 p-3 hover:bg-transparent hover:outline-dashed'>get product image</button>
+            </div> */}
+            <p className='text-center'>YOU ARE NOT SUPPOSED TO BE HERE
+            </p>
         </Fragment>
     )
 }

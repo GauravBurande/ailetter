@@ -101,7 +101,6 @@ const IncomeIdeas = () => {
             </Head>
 
             <h1 className='px-10 text-3xl font-semibold pt-4'>Making money using ai</h1>
-            <p></p>
             <div className='flex items-center justify-center p-10 gap-10 flex-wrap'>
                 {ideas.map((idea) => {
                     return (

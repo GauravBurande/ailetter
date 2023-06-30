@@ -143,7 +143,7 @@ const Tool = ({ tool, featuredTools }) => {
                                 ? <div className='w-full flex flex-col gap-10'>
                                     {featuredTools.map((product) => {
                                         return (
-                                            <section className='w-full border-black hover:outline-dashed hover:outline-orange-400' key={product.title}>
+                                            <section className='w-full outline-double outline-8 hover:outline-orange-400' key={product.title}>
                                                 <div className='flex flex-col sm:flex-row w-full'>
                                                     <div className='lg:w-4/5 h-40 md:h-[9.3rem] relative'>
                                                         <Link href={`/tools/${product.slug}`}>

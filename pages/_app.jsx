@@ -28,7 +28,6 @@ export default function App({ Component, pageProps }) {
         featuredTools = [...featuredTools, { ...doc.data() }]
       });
       setFeaturedTools(featuredTools);
-      console.log("again and again with featured tools")
     }
 
     getFeaturedTools()

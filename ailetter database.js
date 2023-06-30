@@ -27571,6 +27571,161 @@ const ailetterdb = [
   //   "category": ["Writing", "Content Creation"],
   //   "timestamp": 1687171024415,
   // },
+  // {
+  //   "index": 2161,
+  //   "title": "Chat2code.ai",
+  //   "slug": "chat2code-ai",
+  //   "image": "https://static.wixstatic.com/media/6368ba_137bab19bf064b318740889d893eba9c%7Emv2.png/v1/fit/w_2500,h_1330,al_c/6368ba_137bab19bf064b318740889d893eba9c%7Emv2.png",
+  //   "description": "Chat2Code.ai is an advanced coding tool that simplifies the development process by providing automated coding capabilities. With features like autopilot for coding, users can automate coding tasks from start to finish, including dependency installation. The tool is compatible with any platform and programming language, allowing users to create and edit applications effortlessly.\n\nIt offers natural language to SQL conversion and direct database integration, enabling hassle-free querying and easy data export. Chat2Code also provides a better ChatGPT experience with features like multi-file and large file uploads, web page accessibility, speech-to-text functionality, and convenient global shortcuts. With its user-friendly interface and optimized features, Chat2Code.ai enhances coding productivity and streamlines the development workflow.",
+  //   "pricing": "Free",
+  //   "visit-href": "https://www.chat2code.ai/?via=ailetter",
+  //   "category": ["Developer Tools", "Code Assistant"],
+  //   "timestamp": 1687511915890
+  // },
+  // {
+  //   "index": 2162,
+  //   "title": "WPGPT",
+  //   "slug": "wpgpt",
+  //   "image": "https://wpaithemes.com/wp-content/uploads/2023/05/wpgpt-1.png",
+  //   "description": "WPaiThemes' WPGPT plugin allows users to create and customize their own AI-powered chat for their WordPress website. The plugin offers a range of pre-built AI behavior models for various niches, including business, travel, pet care, and more. Additionally, users can create their own custom AI models. The plugin is fully customizable with Elementor and offers monetization options with response packs and usage packages. The plugin is constantly updated to ensure quality and response times.",
+  //   "pricing": "Paid",
+  //   "visit-href": "https://wpaithemes.com/wpgpt?via=ailetter",
+  //   "category": ["No-Code", "WordPress"],
+  //   "timestamp": 1687511915890
+  // },
+  // {
+  //   "index": 2163,
+  //   "title": "GPTEngineer",
+  //   "slug": "gptengineer",
+  //   "image": "https://opengraph.githubassets.com/3c922f417f00089435df41b8984fc7da1737246fed2484f4a2efd2bba79995ff/AntonOsika/gpt-engineer",
+  //   "description": "GPT Engineer is an open-source AI tool that allows users to specify what they want to build and then engages in a clarifying conversation with the AI to generate the desired codebase. The tool aims to provide a simple and flexible user experience, allowing users to adapt and extend its functionality according to their needs.\n\nThe generated codebase is based on a prompt provided by the user. GPT Engineer emphasizes high-level prompting and enables fast interactions between the AI and human users. It supports resumable computation and persistence to the filesystem.\n\nThe tool includes features such as specifying the AI agent's identity, storing communication history with GPT4, and rerunning message logs. Contributions to the project are welcome, and interested individuals can refer to the provided roadmap, projects, and issues on the GitHub repository. GPT Engineer is designed to be an open platform for developers to explore and build their code-generation toolbox.",
+  //   "pricing": "Free",
+  //   "visit-href": "https://github.com/AntonOsika/gpt-engineer?via=ailetter",
+  //   "category": ["Developer Tools"],
+  //   "timestamp": 1687511915890
+  // },
+  // {
+  //   "index": 2164,
+  //   "title": "FinGPT",
+  //   "slug": "fingpt",
+  //   "image": "https://opengraph.githubassets.com/483e118611a3a7f8117c6009c85ce680fff7f006fefbb4392ca228bb8850c774/AI4Finance-Foundation/FinGPT",
+  //   "description": "FinNLP provides a playground for all people interested in LLMs and NLP in Finance. Here we provide full pipelines for LLM training and fine-tuning in the field of finance.",
+  //   "pricing": "Free",
+  //   "visit-href": "https://github.com/AI4Finance-Foundation/FinGPT?via=ailetter",
+  //   "category": ["Developer Tools", "Finance"],
+  //   "timestamp": 1687511915890
+  // },
+  // {
+  //   "index": 2165,
+  //   "title": "FounderPal Virtual CMO",
+  //   "slug": "founderpal-virtual-cmo",
+  //   "image": "https://d1muf25xaso8hp.cloudfront.net/https%3A%2F%2F524917b70575dd133464860a62657bfb.cdn.bubble.io%2Ff1686650985024x374097169081324160%2Fvirtual_cmo_founderpal.png?w=&amp;h=&amp;auto=compress&amp;dpr=1&amp;fit=max",
+  //   "description": "Virtual CMO is an AI-powered marketing tool that enables users to quickly solve any marketing problem within minutes. The tool offers a range of features designed to address marketing challenges efficiently. By leveraging artificial intelligence, Virtual CMO provides rapid solutions and recommendations for various marketing tasks. Users can benefit from its quick problem-solving capabilities, allowing them to make informed decisions and optimize their marketing strategies. With Virtual CMO, users can overcome marketing hurdles, gain valuable insights, and enhance their overall marketing performance.",
+  //   "pricing": "Free",
+  //   "visit-href": "https://founderpal.ai/virtual-cmo?via=ailetter",
+  //   "category": ["Marketing"],
+  //   "timestamp": 1687511915890
+  // },
+  // {
+  //   "index": 2166,
+  //   "title": "Chatterdocs",
+  //   "slug": "chatterdocs-ai",
+  //   "image": "https://chatterdocs.ai/og-image.png",
+  //   "description": "Chatterdocs is an AI tool that allows users to create customized chatbots powered by GPT technology. With Chatterdocs, you can harness the power of AI to provide faster and more accurate support, capture leads, and book appointments.\n\nThe chatbot understands and responds to customer queries using your data, delivering precise answers in a fraction of the time compared to traditional live chat. It offers round-the-clock support, overcoming response delays and time zone limitations. The chatbot can be personalized to simulate human conversation, maintaining a warm and personal touch.\n\nWith an intuitive interface, you can easily build and customize your chatbot without any coding. It supports native chat integrations, embedding on websites, and push via API. Additionally, it enables lead capture, appointment booking, and provides valuable insights from visitor interactions. Upgrade your customer experience today with Chatterdocs.",
+  //   "pricing": "Freemium",
+  //   "visit-href": "https://chatterdocs.ai/?via=ailetter",
+  //   "category": ["Chatbots", "Document Search"],
+  //   "timestamp": 1687511915890
+  // },
+  // {
+  //   "index": 2167,
+  //   "title": "ToastyAI",
+  //   "slug": "toastyai",
+  //   "image": "https://raw.githubusercontent.com/ailetter/ailetter-img-database/main/toasty.ai.png",
+  //   "description": "ToastyAI is an AI-powered platform that streamlines podcast promotion by transforming podcasts into multiple pieces of content in minutes. It offers features such as automatic transcription, show notes generation, blog article creation, and social media post creation.\n\nWith ToastyAI, users can save time and effort in creating engaging content for their podcasts, including catchy title ideas and ready-to-post articles. The tool also helps with marketing strategies by repurposing old episodes and providing SEO-friendly content.",
+  //   "pricing": "Freemium",
+  //   "visit-href": "https://toastyai.com/?via=ailetter",
+  //   "category": ["Podcasts", "Content Creation"],
+  //   "timestamp": 1688110019205
+  // },
+  // {
+  //   "index": 2168,
+  //   "title": "Designovel",
+  //   "slug": "designovel",
+  //   "image": "https://designovel.com/images/img-dn.png",
+  //   "description": "Designovel is an AI tool that focuses on fashion trend forecasting and design recommendation. It offers various solutions including trend analysis & forecasting, market sensing product/service planning, and advanced fashion AI world. It provides generative AI using core techniques such as metric learning, multimodal embedding, etc. and retains technology to create contents that meet user needs.\n\nAdditionally, it provides an analysis & reporting service that offers a SaaS solution to users to obtain insights for making major decisions in a fast and convenient manner. It has collaborated with various brands such as Branden Jewelry, Dali Hotel, Levon'd, etc.",
+  //   "pricing": "Subscription",
+  //   "visit-href": "https://www.designovel.com/index_en.html?via=ailetter",
+  //   "category": ["Fashion"],
+  //   "timestamp": 1688110019205
+  // },
+  // {
+  //   "index": 2169,
+  //   "title": "Drippi.ai",
+  //   "slug": "drippiai",
+  //   "image": "https://framerusercontent.com/images/mby979eTPSDlRpr7H2MNSly1Sk.png",
+  //   "description": "Drippi.ai is an AI-based tool that helps with personalized cold outreach messages and inbox management. It automates the process of creating highly personalized Twitter direct messages (DMs) and also provides a lead scraping system to find prospects that match the target audience's occupation, industry, and interests. Its AI algorithm analyzes a lead's profile and creates personalized messages, resulting in higher reply rates and better engagement.\n\nIt also provides comprehensive analytics to track lead responses and reply rates to enable data-driven decisions to improve campaigns and increase ROI. Drippi.ai's CRM offers filters, auto-replies, and quick responses to organize inbox conversations with leads.",
+  //   "pricing": "Subscription",
+  //   "visit-href": "https://www.drippi.ai/?via=ailetter",
+  //   "category": ["Social media", "Marketing"],
+  //   "timestamp": 1688110019205
+  // },
+  // {
+  //   "index": 2170,
+  //   "title": "Interviewigniter",
+  //   "slug": "interviewigniter",
+  //   "image": "https://raw.githubusercontent.com/ailetter/ailetter-img-database/main/interviewigniter.png",
+  //   "description": "InterviewIgniter is an AI coaching tool that offers a question bank for behavioral interviews, personalized feedback, and AI role-play simulations to help users prepare for job interviews. The tool provides users with a comprehensive range of behavioral interview questions and example answers tailored to various job roles and categories. It allows users to rehearse and refine their responses and gain confidence and poise to land their dream job.\n\nThe tool utilizes advanced natural language processing algorithms to simulate human-like conversation and provide realistic and effective mock interviews.",
+  //   "pricing": "Free",
+  //   "visit-href": "https://www.interviewigniter.com/?via=ailetter",
+  //   "category": ["Job Search"],
+  //   "timestamp": 1688110019205
+  // },
+  // {
+  //   "index": 2171,
+  //   "title": "Paperclips Copilot",
+  //   "slug": "paperclipscopilot",
+  //   "image": "https://framerusercontent.com/images/dFp9YC3lL90PJ27a8uzDwSKQlM.png",
+  //   "description": "Paperclips Copilot is an AI-generated flashcard tool that helps create quality flashcards from course notes, language notes, and digital notes. It automatically generates flashcards in different languages and exports them in popular formats like Anki, Quizlet, PDF, and CSV. The tool has no limitations on the number of flashcards generated, and users can work on digital notes on the Paperclips Web. The free version of the tool has no text limits. The main features of the tool are creating high-quality flashcards, boosting studies and accelerating the learning journey.",
+  //   "pricing": "Free",
+  //   "visit-href": "https://www.paperclips.app/copilot?via=ailetter",
+  //   "category": ["Education", "Students"],
+  //   "timestamp": 1688110019205
+  // },
+  // {
+  //   "index": 2172,
+  //   "title": "TravelLandz.com",
+  //   "slug": "travellandzcom",
+  //   "image": "https://raw.githubusercontent.com/ailetter/ailetter-img-database/main/travelandz.png",
+  //   "description": "Travelandz is an AI trip planner that offers personalized travel plans based on user preferences and real-time availability of hotels, attractions, and transportation. The platform is designed to simplify the planning process for travelers and provide the best prices for hotels and activities through partnerships with travel agencies. Users can share their plans with the Travelandz community and receive valuable suggestions from fellow travelers.\n\nThe user-friendly interface allows for easy navigation and exploration of unique destinations, including Petra, Machu Picchu, Bali, and Tokyo, among others. The platform connects to real-time systems, allowing users to effortlessly plan and book every aspect of their vacation itinerary with confidence.",
+  //   "pricing": "Freemium",
+  //   "visit-href": "https://travelandz.com/?via=ailetter",
+  //   "category": ["Travel", "Trip Planning"],
+  //   "timestamp": 1688110019205
+  // },
+  // {
+  //   "index": 2173,
+  //   "title": "Product Flint",
+  //   "slug": "productflint",
+  //   "image": "https://raw.githubusercontent.com/ailetter/ailetter-img-database/main/productflint.png",
+  //   "description": "Etsy AI Tools is a set of AI-powered tools specifically designed for Etsy sellers. These tools are designed to generate high-quality, SEO-optimized listing descriptions, titles, and ad captions to enhance visibility, attract customers, and increase sales. The advanced AI algorithms and natural language processing capabilities ensure that the listings and ads created using these tools grab the attention of potential customers.\n\nWhether you are a seasoned seller or just starting on Etsy, these AI tools make it easy to create compelling listings and ads that help your products stand out from the competition. The main features of Etsy AI Tools include the Etsy Keyword Finder, Etsy Shop Analyzer, Etsy Listing Explorer, Etsy AI Tag Generator, Etsy Tag Extractor, Etsy Insights, and Etsy Trending Keywords.",
+  //   "pricing": "Free",
+  //   "visit-href": "https://productflint.com/features/ai-tools?via=ailetter",
+  //   "category": ["E-commerce"],
+  //   "timestamp": 1688110019205
+  // },
+  // {
+  //   "index": 2174,
+  //   "title": "AI Plagiarism Checker",
+  //   "slug": "aiplagiarismchecker",
+  //   "image": "https://github.com/ailetter/ailetter-img-database/blob/main/.png?raw=true",
+  //   "image": "https://raw.githubusercontent.com/ailetter/ailetter-img-database/main/plagiarism-check.png",
+  //   "description": "The AI plagiarism checker and chat GPT content detector offered by plagiarismcheck.org is a tool designed to detect AI-generated content and plagiarism. It provides advanced AI technology that can accurately identify AI content. The tool allows users to add text and check it using the AI detector within seconds.\n\nIt supports various file formats such as doc, docx, txt, odt, rtf, and pdf, with a minimum requirement of 250 symbols. The AI plagiarism checker is useful in various contexts, including academia, SEO, and recruitment. In academia, it helps support academic integrity by detecting AI plagiarism.\n\nFor SEO purposes, it ensures that AI-generated content does not put website rankings at risk. In recruitment, it helps filter out AI-written applications to ensure human-written content. The tool offers a free one-year access option for teachers and educational institutions.",
+  //   "pricing": "Freemium",
+  //   "visit-href": "https://plagiarismcheck.org/ai-plagiarism-checker-and-content-detector/?via=ailetter",
+  //   "category": ["AI detection"],
+  //   "timestamp": 1688110019205
+  // },
 ]
 
 export default ailetterdb
