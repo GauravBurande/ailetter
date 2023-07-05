@@ -1,7 +1,6 @@
 // import { useRouter } from 'next/router'
 import React, { Fragment } from 'react'
 import db from '../../firebase'
-import Image from 'next/image'
 import { GoLinkExternal } from "react-icons/go"
 import { collection, query, where, getDocs } from "firebase/firestore";
 import Head from 'next/head'
@@ -106,7 +105,8 @@ const Tool = ({ tool, featuredTools }) => {
                     </div>
 
                     {tool.image && <div className='outline-double w-11/12 outline-8'>
-                        <Image className='overflow-hidden w-full' alt={tool.title} src={`${!tool.image.includes("https://") ? "https://topai.tools" + tool.image : tool.image}`} width={400} height={400}
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img className='overflow-hidden w-full' alt={tool.title} src={`${!tool.image.includes("https://") ? "https://topai.tools" + tool.image : tool.image}`} width={400} height={400}
                         />
                     </div>}
 
@@ -147,7 +147,8 @@ const Tool = ({ tool, featuredTools }) => {
                                                 <div className='flex flex-col sm:flex-row w-full'>
                                                     <div className='lg:w-4/5 h-40 md:h-[9.3rem] relative'>
                                                         <Link href={`/tools/${product.slug}`}>
-                                                            <Image className='absolute object-left object-cover h-full w-full overflow-hidden' alt={product.title} width={600} height={400} src={`${!product.image.includes("https://") ? "https://topai.tools" + product.image : product.image}`} />
+                                                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                                                            <img className='absolute object-left object-cover h-full w-full overflow-hidden' alt={product.title} width={600} height={400} src={`${!product.image.includes("https://") ? "https://topai.tools" + product.image : product.image}`} />
                                                         </Link>
                                                     </div>
                                                     <div className='text-start relative w-full pl-3 py-2 text-sm flex justify-center flex-col bg-orange-200 hover:bg-transparent'>

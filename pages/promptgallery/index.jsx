@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Image from 'next/image'
+// import Image from 'next/image'
 import Link from 'next/link'
 import React, { Fragment } from 'react'
 
@@ -67,7 +67,8 @@ const PromptGallery = () => {
                         <div key={category.category}>
                             <Link className='flex h-full items-center justify-center' href={category.pageLink}>
                                 <div className='relative w-44 h-36'>
-                                    <Image className='absolute object-center object-cover h-full w-full overflow-hidden' src={category.image} alt={category.category} height={100} width={1000} />
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                                    <img className='absolute object-center object-cover h-full w-full overflow-hidden' src={category.image} alt={category.category} height={100} width={1000} />
                                 </div>
                                 <div className='bg-orange-200 flex flex-col items-start justify-center pl-3 gap-3 w-full h-full'>
                                     <h2 className='md:text-xl inline-block text-lg hover:underline font-semibold'>{category.category}</h2>

@@ -35,7 +35,7 @@ const slugToCategory = {
     "translation": ["Translation",],
     "video": ["Video", "video Generation", "Video Editing"],
     "writing": ["Writing", "Text and Speech"],
-    "everyday-life": ["Everyday Life", "Fun", "Travel", "no-code", "Startup tools", "Relationships", "Health", "Fitness", "Fashion"],
+    "everyday-life": ["Everyday Life", "Life Assistant", "Fun", "Travel", "no-code", "Startup tools", "Relationships", "Health", "Fitness", "Fashion"],
 }
 
 export const getStaticPaths = async () => {
