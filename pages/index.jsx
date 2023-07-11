@@ -3,9 +3,10 @@ import ProductsList from '../components/ProductsList'
 // import aitools from '../ailetter database'
 import db from '../firebase'
 import { Fragment } from 'react'
-import { query, orderBy, limit, collection, getDocs } from "firebase/firestore";
+import { query, orderBy, limit, collection, getDocs, where } from "firebase/firestore";
 import Hero from '../components/Hero';
 import Category from '../components/Category';
+import { useState } from 'react';
 
 export const getStaticProps = async () => {
 
@@ -21,13 +22,12 @@ export const getStaticProps = async () => {
   });
 
   return {
-    props: { latestTools: toolz }
+    props: { toolz: toolz }
   }
 }
 
-export default function Home({ latestTools, featuredTools }) {
+export default function Home({ toolz, featuredTools }) {
 
-  // const [latestTools, setLatestTools] = useState([])
   // const router = useRouter()
   // const pathname = router.pathname
 
@@ -54,6 +54,26 @@ export default function Home({ latestTools, featuredTools }) {
   // const getToolSlugs = async () => {
 
   // }
+
+  const [latestTools, setLatestTools] = useState(toolz)
+  const [loading, setLoading] = useState(false)
+  const lastToolIndex = latestTools[latestTools.length - 1];
+
+  const loadMoreTools = async () => {
+    setLoading(true);
+    const q = query(collection(db, "tools"), where("index", "<", lastToolIndex.index), orderBy("index", "desc"), limit(20));
+
+    const querySnapshot = await getDocs(q);
+    querySnapshot && setLoading(false);
+
+    let newLoadedTools = []
+    querySnapshot.forEach((doc) => {
+      newLoadedTools = [...newLoadedTools, { ...doc.data() }]
+    });
+
+    const newLatestTools = [...latestTools, ...newLoadedTools]
+    setLatestTools(newLatestTools)
+  }
 
   return (
     <>
@@ -87,6 +107,9 @@ export default function Home({ latestTools, featuredTools }) {
         </div>}
         <h2 className='md:pl-28 px-12 pt-8 text-3xl font-semibold'>Latest Tools</h2>
         <ProductsList products={latestTools} />
+        <div className='text-center'>
+          <button disabled={loading} onClick={loadMoreTools} className='bg-orange-400 p-3 cursor-pointer hover:text-white'>{loading ? "loading" : "load more"}</button>
+        </div>
         {/* <button className='p-4 absolute hover:bg-orange-500' onClick={getToolSlugs}>hello</button> */}
       </Fragment>
     </>
