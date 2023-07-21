@@ -6,8 +6,32 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import db from '../firebase'
 import { collection, query, where, getDocs } from "firebase/firestore";
+import { getAuth, signInAnonymously, onAuthStateChanged } from "firebase/auth";
 
 export default function App({ Component, pageProps }) {
+
+  const auth = getAuth();
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/auth.user
+      // const uid = user.uid;
+      // console.log(uid);
+      // ...
+    } else {
+      signInAnonymously(auth)
+        .then(() => {
+          console.log("signed In Anonymously!")
+          // Signed in..
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          alert(errorCode + ': ' + errorMessage)
+        });
+    }
+  });
 
   const router = useRouter();
 
@@ -15,6 +39,7 @@ export default function App({ Component, pageProps }) {
   const is404Page = pathName === '/_error'
 
   const [featuredTools, setFeaturedTools] = useState([])
+  const [topIndex, setTopIndex] = useState(10000)
   const doNotReRender = true;
 
   useEffect(() => {
@@ -38,7 +63,7 @@ export default function App({ Component, pageProps }) {
       <section className='relative'>
         <div className="absolute -z-10 inset-0 bg-[url(/images/grid.svg)] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,255))]"></div>
         {!is404Page && <Navbar />}
-        <Component {...pageProps} featuredTools={featuredTools} />
+        <Component {...pageProps} featuredTools={featuredTools} topIndex={topIndex} setTopIndex={setTopIndex} />
         {!is404Page && <Footer />}
       </section>
     </>

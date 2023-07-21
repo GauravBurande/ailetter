@@ -27786,7 +27786,7 @@ const ailetterdb = [
   //   "slug": "monarch-money",
   //   "image": "/assets/img/tools/monarch-money.webp",
   //   "description": "Monarch AI Assistant is an all-in-one app focused on helping users achieve better financial outcomes through personalized advice and valuable insights. It offers features such as net worth syncing, budgeting, recurring investments, spending insights, and a custom dashboard. Monarch allows users to track their financial goals and progress, providing them with a tool to stay on top of their budget. The app also offers collaborative solutions for couples, advisors, and employers.\n\nOne of the main use cases of Monarch AI Assistant is to simplify the management of personal finances through easy conversation. Users can ask the financial assistant questions like \"Can I afford a new car?\" and the AI-powered assistant gets smarter with each interaction, providing personalized advice and helping users find ways to save money.\n\nMonarch also offers a benchmark feature, allowing users to compare their spending with others. This feature helps users identify areas where they can potentially cut back on expenses and save more money.",
-  //   "Contact": "",
+  //   "Pricing": "Freemium",
   //   "visit-href": "https://www.monarchmoney.com/ai?via=ailetter",
   //   "category": ["Finance", "Life Assistant"],
   //   "timestamp": 1688540009140

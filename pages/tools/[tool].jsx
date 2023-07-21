@@ -1,6 +1,7 @@
 // import { useRouter } from 'next/router'
 import React, { Fragment } from 'react'
 import db from '../../firebase'
+import toolSlugs from '../../toolSlugs'
 import { GoLinkExternal } from "react-icons/go"
 import { collection, query, where, getDocs } from "firebase/firestore";
 import Head from 'next/head'
@@ -10,12 +11,15 @@ import Link from 'next/link';
 
 export const getStaticPaths = async () => {
 
-    const querySnapshot = await getDocs(collection(db, "tools"));
+    // const querySnapshot = await getDocs(collection(db, "tools"));
 
-    let toolSlugs = []
-    querySnapshot.forEach((doc) => {
-        toolSlugs = [...toolSlugs, `/tools/${doc.data().slug}`]
-    });
+    // let toolSlugs = []
+    // querySnapshot.forEach((doc) => {
+    //     toolSlugs = [...toolSlugs, `/tools/${doc.data().slug}`]
+    // });
+
+    // CHANGED THE WAY I GOT ALL THE SLUGS DUE TO FIREBASE SECURITY RULES AND I DON'T WANT TO IMPLEMENT API FOR JUST GETTING TOOL SLUGS
+    // Now just get the slugs from toolSlugs.js file and update that file with new toolSlug when adding new tool.
 
     return {
         paths: toolSlugs,
@@ -45,7 +49,7 @@ const Tool = ({ tool, featuredTools }) => {
     const router = useRouter()
     const toolSlug = router.query.tool
 
-    // const dummyTool = {
+    // const tool = {
     //     "index": 0,
     //     "title": "loading",
     //     "image": "",

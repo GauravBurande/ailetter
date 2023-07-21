@@ -13,7 +13,7 @@ const Submit = () => {
                 "it may take time due to queued submission reviews, the estimated waiting time is about 30+ days",
                 "no updates available",
             ],
-            "button call": "submitn now",
+            "button call": "submit now",
             "button url": "mailto:ailetter.substack@gmail.com?subject=Submit my tool to ailetter!",
         },
         {
@@ -68,7 +68,7 @@ const Submit = () => {
             </Head>
 
             <div className='p-10'>
-                <h1 className='text-3xl font-semibold pb-10'>Submit a tool, sponsor ailetter and get featured on our site and newlsetter.</h1>
+                <h1 className='text-3xl font-semibold pb-10'>Submit a tool, sponsor ailetter and get featured on our site and newsletter.</h1>
 
                 <p className='font-semibold text-lg pb-5'>*Requirements</p>
                 <div className='flex flex-col gap-1'>

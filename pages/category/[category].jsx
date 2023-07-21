@@ -24,7 +24,7 @@ const slugToCategory = {
     "gaming": ["Gaming",],
     "images": ["Images", "Image Generation", "Image Editing"],
     "legal": ["Legal",],
-    "marketing": ["Marketing", "Advertising"],
+    "marketing": ["Marketing", "Advertising", "Sales"],
     "music": ["Music",],
     "podcasting": ["Podcasting", "Podcasts"],
     "productivity": ["Productivity",],

@@ -12,9 +12,9 @@ const DatabaseDocsCount = () => {
             const coll = collection(db, "tools");
             const snapshot = await getCountFromServer(coll);
             setTotalTools(snapshot.data().count)
-            // console.log('count:', snapshot.data().count)
+            console.log('count:', snapshot.data().count)
         }
-        // countDocs()
+        countDocs()
     })
 
     return (
