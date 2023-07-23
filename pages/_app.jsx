@@ -18,11 +18,7 @@ export default function App({ Component, pageProps }) {
   const [featuredTools, setFeaturedTools] = useState([])
   const doNotReRender = true;
 
-  console.log("app component rendered")
-
   useEffect(() => {
-
-    console.log("running useffect")
 
     const getFeaturedTools = async () => {
       const q = query(collection(db, "tools"), where("featured", "==", true));
