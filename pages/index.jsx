@@ -7,8 +7,32 @@ import { query, orderBy, limit, collection, getDocs, where } from "firebase/fire
 import Hero from '../components/Hero';
 import Category from '../components/Category';
 import { useState } from 'react';
+import { getAuth, signInAnonymously, onAuthStateChanged } from "firebase/auth";
 
 export const getStaticProps = async () => {
+
+  const auth = getAuth();
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/auth.user
+      const uid = user.uid;
+      console.log(uid);
+      // ...
+    } else {
+      signInAnonymously(auth)
+        .then(() => {
+          console.log("signed In Anonymously!")
+          // Signed in..
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          alert(errorCode + ': ' + errorMessage)
+        });
+    }
+  });
 
   const q = query(collection(db, "tools"), orderBy("index", "desc"), limit(20));
 

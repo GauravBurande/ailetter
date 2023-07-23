@@ -10,39 +10,20 @@ import { getAuth, signInAnonymously, onAuthStateChanged } from "firebase/auth";
 
 export default function App({ Component, pageProps }) {
 
-  const auth = getAuth();
-
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/auth.user
-      // const uid = user.uid;
-      // console.log(uid);
-      // ...
-    } else {
-      signInAnonymously(auth)
-        .then(() => {
-          console.log("signed In Anonymously!")
-          // Signed in..
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          alert(errorCode + ': ' + errorMessage)
-        });
-    }
-  });
-
   const router = useRouter();
 
   const pathName = router.pathname;
   const is404Page = pathName === '/_error'
 
   const [featuredTools, setFeaturedTools] = useState([])
-  const [topIndex, setTopIndex] = useState(10000)
   const doNotReRender = true;
 
+  console.log("app component rendered")
+
   useEffect(() => {
+
+    console.log("running useffect")
+
     const getFeaturedTools = async () => {
       const q = query(collection(db, "tools"), where("featured", "==", true));
 
@@ -55,7 +36,30 @@ export default function App({ Component, pageProps }) {
       setFeaturedTools(featuredTools);
     }
 
-    getFeaturedTools()
+    const auth = getAuth();
+
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/auth.user
+        const uid = user.uid;
+        console.log(uid);
+        getFeaturedTools()
+        // ...
+      } else {
+        signInAnonymously(auth)
+          .then(() => {
+            console.log("signed In Anonymously!")
+            // Signed in..
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert(errorCode + ': ' + errorMessage)
+          });
+      }
+    });
+
   }, [doNotReRender])
 
   return (
@@ -63,7 +67,7 @@ export default function App({ Component, pageProps }) {
       <section className='relative'>
         <div className="absolute -z-10 inset-0 bg-[url(/images/grid.svg)] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,255))]"></div>
         {!is404Page && <Navbar />}
-        <Component {...pageProps} featuredTools={featuredTools} topIndex={topIndex} setTopIndex={setTopIndex} />
+        <Component {...pageProps} featuredTools={featuredTools} />
         {!is404Page && <Footer />}
       </section>
     </>
