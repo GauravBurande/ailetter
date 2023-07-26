@@ -18,7 +18,7 @@ export default async function handler(req, res) {
 
         const modifiedFile = data.replace(/(const\s+toolSlugs\s*=\s*\[)([\s\S]*?)(\];?)/, (match, p1, p2, p3) => {
             const arrayContent = p2.trim(); // Get the existing array elements
-            const newArrayContent = `${arrayContent}, \n\t/tools/${toolSlug}`; // Append the new element
+            const newArrayContent = `${arrayContent}, \n\t"/tools/${toolSlug}"`; // Append the new element
 
             return `${p1}${newArrayContent}${p3}`; // Return the modified array
         });
