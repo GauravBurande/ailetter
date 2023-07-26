@@ -2,17 +2,17 @@ import db, { googleAuthProvider, userAuth } from '../firebase'
 // import { writeBatch, doc } from "firebase/firestore";
 // import aitools from '../ailetter database'
 import { getAuth, signInWithPopup } from "firebase/auth";
-import { doc, setDoc, query, orderBy, limit, collection, getDocs } from "firebase/firestore";
+import { doc, updateDoc, setDoc, query, orderBy, limit, collection, getDocs } from "firebase/firestore";
 import { Toaster, toast } from 'sonner'
+import { RiDeleteBinLine } from 'react-icons/ri'
 
 import Head from "next/head"
 import { Fragment, useEffect, useState } from "react"
 
-const AddTool = () => {
+const AddTool = ({ featuredTools }) => {
 
     const time = new Date()
     const timestamp = time.getTime();
-    // console.log(timestamp)
 
     useEffect(() => {
         const auth = getAuth();
@@ -29,7 +29,8 @@ const AddTool = () => {
     const [category, setCategory] = useState('')
     const [tag, setTag] = useState('')
     const [featured, setFeatured] = useState(false)
-    const [imageFile, setImageFile] = useState(null)
+    const [featureInput, setFeatureInput] = useState('')
+    const [webpImageInfo, setWebImageInfo] = useState({})
 
     // const batch = writeBatch(db);
 
@@ -67,55 +68,61 @@ const AddTool = () => {
     const addOneTool = async (e) => {
 
         e.preventDefault();
-        // Replace non-alphanumeric characters with a hyphen
-        const slug = formWithoutCategory.title.replace(/[^a-zA-Z0-9]+/g, '-');
 
-        // Convert to lowercase
-        const lowercaseSlug = slug.toLowerCase();
+        const addTool = confirm("Are you sure you want to add this tool to ailetter?")
 
-        // Remove leading and trailing hyphens
-        const finalSlug = lowercaseSlug.replace(/^-+|-+$/g, '');
+        if (addTool) {
 
-        try {
-            const response = await fetch('/api/addToSlugList', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ finalSlug }),
-            });
+            // Replace non-alphanumeric characters with a hyphen
+            const slug = formWithoutCategory.title.replace(/[^a-zA-Z0-9]+/g, '-');
 
-            const result = await response.json();
+            // Convert to lowercase
+            const lowercaseSlug = slug.toLowerCase();
 
-            if (result.success) {
-                console.log("Successfully added to the slug list");
-            } else {
-                console.log("Failed to add to the slug list")
+            // Remove leading and trailing hyphens
+            const finalSlug = lowercaseSlug.replace(/^-+|-+$/g, '');
+
+            try {
+                const response = await fetch('/api/addToSlugList', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ finalSlug }),
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    console.log("Successfully added to the slug list");
+                } else {
+                    console.log("Failed to add to the slug list")
+                }
+            } catch (error) {
+                console.log("Error: " + error)
             }
-        } catch (error) {
-            console.log("Error: " + error)
+
+            const q = query(collection(db, "tools"), orderBy("index", "desc"), limit(1));
+
+            const querySnapshot = await getDocs(q);
+
+            let topTool = {}
+            querySnapshot.forEach((doc) => {
+                topTool = doc.data()
+            });
+            const topIndex = topTool.index
+
+            const toolDocument = { index: topIndex + 1, slug: finalSlug, ...formWithoutCategory, "visit-href": formWithoutCategory['visit-href'] + "?ref=ailetter.tech", category: [category, tag], timestamp, featured }
+            console.log(toolDocument)
+
+            await setDoc(doc(db, "tools", formWithoutCategory.title), toolDocument);
+            toast.success("Tool added successfully to the database!");
+
+            setFormWithoutCategory(emptyForm)
+            setCategory('')
+            setTag('')
+            setFeatured(false)
         }
-
-        const q = query(collection(db, "tools"), orderBy("index", "desc"), limit(1));
-
-        const querySnapshot = await getDocs(q);
-
-        let topTool = {}
-        querySnapshot.forEach((doc) => {
-            topTool = doc.data()
-        });
-
-        const topIndex = topTool.index
-
-        const toolDocument = { index: topIndex + 1, slug: finalSlug, ...formWithoutCategory, "visit-href": formWithoutCategory['visit-href'] + "?ref=ailetter.tech", category: [category, tag], timestamp, featured }
-        console.log(toolDocument)
-
-        await setDoc(doc(db, "tools", formWithoutCategory.title), toolDocument);
-
-        setFormWithoutCategory(emptyForm)
-        setCategory('')
-        setTag('')
-        setFeatured(false)
     }
 
     const handleSignOut = () => {
@@ -142,8 +149,107 @@ const AddTool = () => {
     }
 
     const handleImageInput = async (e) => {
-        setImageFile(URL.createObjectURL(e.target.files[0]));
-        console.log(imageFile);
+        if (e.target.files.length > 0) {
+            let image = await createImageBitmap(e.target.files[0]);
+
+            // converting image to webp format
+
+            let canvas = new OffscreenCanvas(image.width, image.height);
+            let context = canvas.getContext("2d");
+            context.drawImage(image, 0, 0);
+
+            let webpImageBlob = await canvas.convertToBlob({ type: "image/webp", quality: 0.7 });
+
+            // converting blob back to file format
+            // let webpImageFile = new File([webpImageBlob], e.target.files[0].name.split(".")[0] + '.webp', { type: "image/webp", lastModified: Date.now() })
+
+            // converting the blob to base64 format
+            const reader = new FileReader();
+            reader.readAsDataURL(webpImageBlob);
+            reader.onloadend = function () {
+                const webpImageBase64 = reader.result;
+                setWebImageInfo({ webpImageBase64, fileName: e.target.files[0].name.split(".")[0] + '.webp' });
+                // console.log("webpfile info: ", webpImageInfo)
+                // console.log("pure base64: ", webpImageBase64.split(",")[1])
+            }
+        }
+    }
+
+    const toGithubRepo = async () => {
+        if (Object.keys(webpImageInfo).length > 0) {
+
+            const data = JSON.stringify({
+                "message": `added image file ${webpImageInfo.fileName}`,
+                "content": `${webpImageInfo.webpImageBase64.split(",")[1]}`
+            });
+
+            const token = process.env.NEXT_PUBLIC_GITHUB_ACCESS_TOKEN
+            var requestOptions = {
+                method: 'put',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                },
+                body: data,
+            };
+
+            const url = `https://api.github.com/repos/ailetter/ailetter-img-database/contents/${webpImageInfo.fileName}`
+
+            try {
+                const response = await fetch(url, requestOptions)
+                const result = await response.json()
+
+                if (result.commit) {
+                    toast.success(result.commit.message)
+                    setFormWithoutCategory({ ...formWithoutCategory, "image": result.content.download_url })
+                } else if (result.message === `Invalid request.\n\n"sha" wasn't supplied.`) {
+                    toast.error("Image already exists on the server!\n\n" + result.message)
+                    setFormWithoutCategory({ ...formWithoutCategory, "image": `https://raw.githubusercontent.com/ailetter/ailetter-img-database/main/${webpImageInfo.fileName}` })
+                } else {
+                    toast.error(result.message)
+                    console.log(result)
+                }
+            } catch (error) {
+                toast.error(error.message)
+                console.log(error)
+            }
+        } else {
+            toast.error("Failed to process the image input, please try again!")
+        }
+    }
+
+    const removeFromFeatured = async (tool) => {
+        const remove = confirm("Are you sure you want to remove this tool from featured section?")
+
+        if (remove) {
+            const toolRef = doc(db, "tools", tool);
+
+            await updateDoc(toolRef, {
+                featured: false
+            });
+
+            toast.success("The tool has been removed from the featured tools section.")
+        }
+    }
+
+    const hanldeFeatureInput = (e) => {
+        setFeatureInput(e.target.value)
+    }
+
+    const addToFeatured = async (e) => {
+        e.preventDefault()
+        const add = confirm("Are you sure you want to add this tool to featured section?")
+
+        if (add) {
+            const toolRef = doc(db, "tools", featureInput);
+
+            await updateDoc(toolRef, {
+                featured: true
+            });
+
+            toast.success("The tool has been added to the featured tools section.")
+            setFeatureInput('')
+        }
     }
 
     return (
@@ -182,10 +288,10 @@ const AddTool = () => {
                                 <label htmlFor="image">image URL</label>
                                 <div className='flex flex-wrap gap-2 items-center'>
                                     <p>or</p>
-                                    <input type="file" onChange={handleImageInput} />
-                                    <button className='px-2 py-1 rounded-[1px] bg-gray-100 hover:bg-gray-200 outline outline-1' type='button'>upload</button>
+                                    <input type="file" accept='image/*' name='convert' id="toolImage" onChange={handleImageInput} />
+                                    <button onClick={toGithubRepo} className='px-2 py-1 rounded-[1px] bg-gray-100 hover:bg-gray-200 outline outline-1' type='button'>upload</button>
                                 </div>
-                                <input onChange={handleFormInput} value={formWithoutCategory.image} id='image' name='image' className='w-full px-3 py-1 outline outline-2' type="url" required />
+                                <input readOnly={formWithoutCategory.image.includes("https://raw.githubusercontent.com/ailetter/ailetter-img-database/main/")} onChange={handleFormInput} value={formWithoutCategory.image} id='image' name='image' className='w-full px-3 py-1 outline outline-2' type="url" required />
                             </div>
                             <div className='flex w-full gap-2 flex-col justify-center items-start'>
                                 <label htmlFor="description">description</label>
@@ -224,12 +330,40 @@ const AddTool = () => {
                                 <input checked={featured} onChange={handleFormInput} value={featured} id='featured' name='featured' type="checkbox" />
                                 <label htmlFor="featured">Add to featured tools section</label>
                             </div>
-                            <button type='submit' className='bg-orange-400 w-full text-white hover:text-black uppercase mt-3 p-3 hover:bg-transparent hover:outline-dashed'>add tool</button>
+                            <button type='submit' className='bg-orange-400 w-full text-white hover:text-black uppercase p-3 hover:bg-transparent hover:outline-dashed'>add tool</button>
                         </form>
                     </div>
 
-                    <div className='md:w-5/12 flex items-center justify-center'>
-                        <button onClick={handleSignOut} className='bg-orange-400 w-fit p-3 hover:bg-transparent hover:outline-dashed uppercase'>Sign Out</button>
+                    <div className='md:w-5/12 w-full flex flex-col md:min-h-[87vh] items-center gap-8 justify-between'>
+                        <div className='w-full h-full'>
+                            <p className='text-2xl py-10 font-semibold'>Featured Tools</p>
+                            {
+                                featuredTools.length > 0
+                                    ? <div className='w-full'>
+                                        {featuredTools.map((tool) => {
+                                            return (
+                                                <div className='flex w-full py-3 flex-col items-center justify-center' key={tool.title}>
+                                                    <div className='flex w-full flex-wrap justify-between items-center'>
+                                                        <p>{tool.title}</p>
+                                                        <button onClick={() => { removeFromFeatured(tool.title) }} className='bg-gray-100 flex items-center hover:bg-gray-200 px-2 py-1 outline outline-1 rounded-[1px]'>remove <span className='text-orange-500'><RiDeleteBinLine /></span></button>
+                                                    </div>
+                                                </div>
+                                            )
+                                        })}
+                                    </div>
+                                    : <div className='flex items-center justify-center md:h-[10vh]'>
+                                        <p className='text-xl text-center'>Currently there are no tools in featured section.</p>
+                                    </div>
+                            }
+                        </div>
+                        <div className='w-full'>
+                            <p className='text-2xl py-10 font-semibold'>Add a tool to featured section</p>
+                            <form className='flex gap-3 w-full' onSubmit={addToFeatured} method="post">
+                                <input onChange={hanldeFeatureInput} value={featureInput} placeholder="enter the tool's title" className='px-2 py-1 outline outline-2 w-[88%]' type="text" name="toolTitle" id="toolTitle" />
+                                <button disabled={featureInput === ''} className='bg-gray-100 flex items-center hover:bg-gray-200 px-4 py-1 outline outline-1 rounded-[1px]' type="submit">add</button>
+                            </form>
+                        </div>
+                        <button onClick={handleSignOut} className='bg-orange-400 mt-auto w-fit p-3 hover:bg-transparent hover:outline-dashed uppercase'>Sign Out</button>
                     </div>
                 </div>}
 

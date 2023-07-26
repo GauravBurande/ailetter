@@ -38,8 +38,8 @@ export default function App({ Component, pageProps }) {
       if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/auth.user
-        const uid = user.uid;
-        console.log(uid);
+        // const uid = user.uid;
+        // console.log(uid);
         getFeaturedTools()
         // ...
       } else {
@@ -63,7 +63,7 @@ export default function App({ Component, pageProps }) {
       <section className='relative'>
         <div className="absolute -z-10 inset-0 bg-[url(/images/grid.svg)] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,255))]"></div>
         {!is404Page && <Navbar />}
-        <Component {...pageProps} featuredTools={featuredTools} />
+        <Component {...pageProps} featuredTools={featuredTools} setFeaturedTools={setFeaturedTools} />
         {!is404Page && <Footer />}
       </section>
     </>

@@ -2169,6 +2169,8 @@ const toolSlugs = ["/tools/100-ai-prompts",
     "/tools/xpression-camera",
     "/tools/zenen-ai",
     "/tools/langsmith", 
-	"/tools/belva"]
+	"/tools/belva", 
+	/tools/hello, 
+	/tools/hello]
 
 export default toolSlugs
