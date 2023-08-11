@@ -193,7 +193,7 @@ const AddTool = ({ featuredTools }) => {
                 }
             } catch (error) {
                 toast.error(error.message)
-                console.log(error)
+                console.error(error)
             }
         } else {
             toast.error("Failed to process the image input, please try again!")

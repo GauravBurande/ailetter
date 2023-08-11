@@ -226,7 +226,7 @@ const Tool = ({ tool, featuredTools }) => {
     //     "image": "",
     //     "description": "loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading loading ",
     //     "pricing": "loading",
-    //     "visit-href": "#",
+    //     "visit": "#",
     //     "category": [
     //         "Please",
     //         "Wait"
@@ -285,7 +285,7 @@ const Tool = ({ tool, featuredTools }) => {
                         />
                     </div>}
 
-                    <a className='w-full' href={tool["visit-href"]} target='_blank'>
+                    <a className='w-full' href={tool.visit} target='_blank'>
                         <div className='flex p-2 gap-1 mx-auto w-11/12 items-center justify-center outline-dashed text-orange-400 hover:text-black'>
                             <p>visit {tool.title}</p>
                             <GoLinkExternal />
@@ -327,7 +327,7 @@ const Tool = ({ tool, featuredTools }) => {
                                                         </Link>
                                                     </div>
                                                     <div className='text-start relative w-full pl-3 py-2 text-sm flex justify-center flex-col bg-orange-200 hover:bg-transparent'>
-                                                        <a href={product["visit-href"]} target='_blank'>
+                                                        <a href={product.visit} target='_blank'>
                                                             <div className='absolute hover:text-orange-500 flex p-2 items-center justify-center -top-1 right-0'>
                                                                 {/* <p>visit</p> */}
                                                                 <GoLinkExternal />
