@@ -84,26 +84,6 @@ const AddTool = ({ featuredTools }) => {
             // Remove leading and trailing hyphens
             const finalSlug = lowercaseSlug.replace(/^-+|-+$/g, '');
 
-            try {
-                const response = await fetch('/api/addToSlugList', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ finalSlug }),
-                });
-
-                const result = await response.json();
-
-                if (result.success) {
-                    console.log("Successfully added to the slug list");
-                } else {
-                    console.log("Failed to add to the slug list")
-                }
-            } catch (error) {
-                console.log("Error: " + error)
-            }
-
             const q = query(collection(db, "tools"), orderBy("index", "desc"), limit(1));
 
             const querySnapshot = await getDocs(q);
