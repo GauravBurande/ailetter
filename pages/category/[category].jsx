@@ -1,10 +1,11 @@
 import { useRouter } from 'next/router'
 import React, { Fragment } from 'react'
-import { collection, query, where, getDocs } from "firebase/firestore";
-import db from '../../firebase'
+// import { collection, query, where, getDocs } from "firebase/firestore";
+// import db from '../../firebase'
 import ProductsList from '../../components/ProductsList'
 import Head from 'next/head';
 import CategoryComponent from '../../components/Category';
+import jwt from 'jsonwebtoken';
 
 const slugToCategory = {
     "ai-detection": ["AI Detection",],
@@ -49,21 +50,125 @@ export const getStaticProps = async (context) => {
 
     const categorySlug = context.params.category
 
-    const category = slugToCategory[categorySlug]
+    const categories = slugToCategory[categorySlug]
+    const clientEmail = process.env.FIREBASE_CLIENT_EMAIL
+    const privateKey = process.env.FIREBASE_PRIVATE_KEY
 
-    const q = query(collection(db, "tools"), where("category", "array-contains-any", category));
+    const jwtToken = jwt.sign(
+        {
+            iss: clientEmail,
+            scope: 'https://www.googleapis.com/auth/cloud-platform',
+            aud: 'https://www.googleapis.com/oauth2/v4/token',
+            iat: parseInt(Date.now() / 1000),
+            exp: parseInt(Date.now() / 1000) + 60 * 60, // 60 minutes
+        },
+        privateKey,
+        {
+            algorithm: 'RS256',
+        }
+    );
+    // console.log("jwt token", jwtToken)
 
-    const querySnapshot = await getDocs(q);
-    if (!querySnapshot) {
-        return {
-            props: { categoryTools: [] }
+    // Exchange the JWT token for an access token
+    const getAccessToken = async () => {
+        try {
+            const tokenResponse = await fetch('https://www.googleapis.com/oauth2/v4/token', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
+                    assertion: jwtToken,
+                }),
+            });
+
+            const tokenData = await tokenResponse.json();
+            return tokenData.access_token;
+        } catch (error) {
+            console.error('Error:', error);
+            throw error;
+        }
+    };
+
+    const projectId = process.env.FIREBASE_PROJECT_ID;
+    const accessToken = await getAccessToken();
+    // console.log("accessToken: ", accessToken);
+
+    const queryBody = {
+        "structuredQuery": {
+            "select": {
+                "fields": [
+                    { fieldPath: "index" },
+                    { fieldPath: "title" },
+                    { fieldPath: "slug" },
+                    { fieldPath: "image" },
+                    { fieldPath: "description" },
+                    { fieldPath: "pricing" },
+                    { fieldPath: "category" },
+                    { fieldPath: "visit" },
+                ]
+            },
+            "from": [
+                {
+                    "collectionId": "tools"
+                }
+            ],
+            "where": {
+                "fieldFilter": {
+                    "field": {
+                        "fieldPath": "category"
+                    },
+                    "op": "ARRAY_CONTAINS_ANY",
+                    "value": {
+                        "arrayValue": {
+                            "values": categories.map(category => {
+                                return {
+                                    "stringValue": category
+                                };
+                            })
+                        }
+                    }
+                }
+            }
         }
     }
 
     let categoryTools = []
-    querySnapshot.forEach((doc) => {
-        categoryTools = [...categoryTools, { ...doc.data() }]
-    });
+
+    try {
+        const response = await fetch(`https://firestore.googleapis.com/v1/projects/${projectId}/databases/(default)/documents:runQuery`, {
+            method: "POST",
+            headers: {
+                Authorization: `Bearer ${accessToken}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(queryBody)
+        })
+
+        const result = await response.json()
+
+        result.forEach(doc => {
+            const fields = doc.document.fields
+            const docData = {
+                "index": fields.index?.integerValue || 5000,
+                "title": fields.title?.stringValue || "",
+                "slug": fields.slug?.stringValue || "",
+                "image": fields.image?.stringValue || "",
+                "description": fields.description?.stringValue || "",
+                "pricing": fields.pricing?.stringValue || "",
+                "category": fields.category.arrayValue?.values.map((value) => value.stringValue) || [],
+                "visit": fields.visit?.stringValue || "",
+            }
+            categoryTools = [...categoryTools, { ...docData }];
+        });
+
+    } catch (error) {
+        console.error("Error fetching data:", error);
+    }
+
+    // const q = query(collection(db, "tools"), where("category", "array-contains-any", category));
+    // const querySnapshot = await getDocs(q);
 
     return {
         props: { categoryTools: categoryTools }

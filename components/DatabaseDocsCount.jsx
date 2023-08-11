@@ -23,7 +23,6 @@ const DatabaseDocsCount = () => {
                 {/* <Link href={'/alltools'}>
                     <button className='bg-orange-400 p-3 hover:bg-transparent hover:outline-dashed'>Explore {totalTools} Tools</button>
                 </Link> */}
-                lol nothing here
             </div>
         </Fragment>
     )

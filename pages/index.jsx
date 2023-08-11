@@ -7,43 +7,110 @@ import { query, orderBy, limit, collection, getDocs, where } from "firebase/fire
 import Hero from '../components/Hero';
 import Category from '../components/Category';
 import { useState } from 'react';
-import { getAuth, signInAnonymously, onAuthStateChanged } from "firebase/auth";
+import jwt from 'jsonwebtoken';
 
 export const getStaticProps = async () => {
 
-  const auth = getAuth();
+  const clientEmail = process.env.FIREBASE_CLIENT_EMAIL
+  const privateKey = process.env.FIREBASE_PRIVATE_KEY
 
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/auth.user
-      // const uid = user.uid;
-      // console.log(uid);
-      // ...
-    } else {
-      signInAnonymously(auth)
-        .then(() => {
-          console.log("signed In Anonymously!")
-          // Signed in..
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          alert(errorCode + ': ' + errorMessage)
-        });
+  const jwtToken = jwt.sign(
+    {
+      iss: clientEmail,
+      scope: 'https://www.googleapis.com/auth/cloud-platform',
+      aud: 'https://www.googleapis.com/oauth2/v4/token',
+      iat: parseInt(Date.now() / 1000),
+      exp: parseInt(Date.now() / 1000) + 60 * 60, // 60 minutes
+    },
+    privateKey,
+    {
+      algorithm: 'RS256',
     }
-  });
+  );
+  // console.log("jwt token", jwtToken)
 
-  const q = query(collection(db, "tools"), orderBy("index", "desc"), limit(20));
+  // Exchange the JWT token for an access token
+  const getAccessToken = async () => {
+    try {
+      const tokenResponse = await fetch('https://www.googleapis.com/oauth2/v4/token', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams({
+          grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
+          assertion: jwtToken,
+        }),
+      });
 
-  const querySnapshot = await getDocs(q);
+      const tokenData = await tokenResponse.json();
+      return tokenData.access_token;
+    } catch (error) {
+      console.error('Error:', error);
+      throw error;
+    }
+  };
+
+  const projectId = process.env.FIREBASE_PROJECT_ID;
+  const accessToken = await getAccessToken();
+  // console.log("accessToken: ", accessToken);
+
+  const queryBody = {
+    structuredQuery: {
+      select: {
+        fields: [
+          { fieldPath: "index" },
+          { fieldPath: "title" },
+          { fieldPath: "slug" },
+          { fieldPath: "image" },
+          { fieldPath: "description" },
+          { fieldPath: "pricing" },
+          { fieldPath: "category" },
+          { fieldPath: "visit" },
+        ]
+      },
+      from: [
+        { collectionId: "tools" }
+      ],
+      orderBy: [
+        { field: { fieldPath: "index" }, direction: "DESCENDING" }
+      ],
+      limit: 20
+    }
+  };
 
   let toolz = []
-  querySnapshot.forEach((doc) => {
-    // doc.data() is never undefined for query doc snapshots
-    // console.log(doc.id, " => ", doc.data());
-    toolz = [...toolz, { ...doc.data() }]
-  });
+
+  try {
+    const response = await fetch(`https://firestore.googleapis.com/v1/projects/${projectId}/databases/(default)/documents:runQuery`, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(queryBody)
+    })
+
+    const result = await response.json()
+
+    result.forEach(doc => {
+      const fields = doc.document.fields
+      const docData = {
+        "index": fields.index?.integerValue || 5000,
+        "title": fields.title?.stringValue || "",
+        "slug": fields.slug?.stringValue || "",
+        "image": fields.image?.stringValue || "",
+        "description": fields.description?.stringValue || "",
+        "pricing": fields.pricing?.stringValue || "",
+        "category": fields.category.arrayValue?.values.map((value) => value.stringValue) || [],
+        "visit": fields.visit?.stringValue || "",
+      }
+      toolz = [...toolz, { ...docData }];
+    });
+
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
 
   return {
     props: { toolz: toolz }
@@ -51,7 +118,6 @@ export const getStaticProps = async () => {
 }
 
 export default function Home({ toolz, featuredTools }) {
-
   // const router = useRouter()
   // const pathname = router.pathname
 
@@ -59,7 +125,7 @@ export default function Home({ toolz, featuredTools }) {
 
   // useEffect(() => {
   //   const getLatestTools = async () => {
-  //     const q = query(collection(db, "tools"), orderBy("timestamp", "desc"), limit(20));
+  //     const q = query(collection(db, "tools"), orderBy("index", "desc"), limit(20));
 
   //     const querySnapshot = await getDocs(q);
 
@@ -81,11 +147,11 @@ export default function Home({ toolz, featuredTools }) {
 
   const [latestTools, setLatestTools] = useState(toolz)
   const [loading, setLoading] = useState(false)
-  const lastToolIndex = latestTools[latestTools.length - 1];
+  const lastToolIndex = parseInt(latestTools[latestTools.length - 1]?.index);
 
   const loadMoreTools = async () => {
     setLoading(true);
-    const q = query(collection(db, "tools"), where("index", "<", lastToolIndex.index), orderBy("index", "desc"), limit(20));
+    const q = query(collection(db, "tools"), orderBy("index", "desc"), where("index", "<", lastToolIndex), limit(20));
 
     const querySnapshot = await getDocs(q);
     querySnapshot && setLoading(false);

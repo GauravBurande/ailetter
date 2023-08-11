@@ -1,5 +1,5 @@
 import db, { googleAuthProvider, userAuth } from '../firebase'
-// import { writeBatch, doc } from "firebase/firestore";
+// import { writeBatch } from "firebase/firestore";
 // import aitools from '../ailetter database'
 import { getAuth, signInWithPopup } from "firebase/auth";
 import { doc, updateDoc, setDoc, query, orderBy, limit, collection, getDocs } from "firebase/firestore";
@@ -8,6 +8,7 @@ import { RiDeleteBinLine } from 'react-icons/ri'
 
 import Head from "next/head"
 import { Fragment, useEffect, useState } from "react"
+import nookies from "nookies"
 
 const AddTool = ({ featuredTools }) => {
 
@@ -18,10 +19,24 @@ const AddTool = ({ featuredTools }) => {
         const auth = getAuth();
         auth.onAuthStateChanged(async (user) => {
             if (user && user.email === owner) {
+                const token = await user.getIdToken()
+                nookies.set(undefined, "token", token, {});
                 setUserIsOwner(true);
             }
         })
     });
+
+    // const batch = writeBatch(db);
+    // const batching = async () => {
+    //     for (const tool of aitools) {
+    //         const toolRef = doc(db, "tools", tool.title);
+    //         batch.set(toolRef, tool)
+    //         // batch.update(toolRef, { "visit": tool["visit-href"] });
+    //         console.log(tool.index);
+    //     }
+
+    //     await batch.commit();
+    // }
 
     const [userIsOwner, setUserIsOwner] = useState(false)
     const emptyForm = { "title": "", "image": "", "description": "", "pricing": "", "visit-href": "" }
@@ -31,19 +46,6 @@ const AddTool = ({ featuredTools }) => {
     const [featured, setFeatured] = useState(false)
     const [featureInput, setFeatureInput] = useState('')
     const [webpImageInfo, setWebImageInfo] = useState({})
-
-    // const batch = writeBatch(db);
-
-    // add tools in batch, many at once
-    // const addTools = async () => {
-    //     for (const tool of aitools) {
-    //         const laRef = doc(db, "tools", tool.title);
-    //         batch.set(laRef, tool)
-    //         console.log(tool)
-    //     }
-
-    //     await batch.commit();
-    // }
 
     const owner = "ailetter.substack@gmail.com";
 
@@ -243,12 +245,17 @@ const AddTool = ({ featuredTools }) => {
         if (add) {
             const toolRef = doc(db, "tools", featureInput);
 
-            await updateDoc(toolRef, {
-                featured: true
-            });
+            try {
+                await updateDoc(toolRef, {
+                    featured: true
+                });
 
-            toast.success("The tool has been added to the featured tools section.")
-            setFeatureInput('')
+                toast.success("The tool has been added to the featured tools section.")
+                setFeatureInput('')
+            } catch (error) {
+                toast.error(error.message)
+                console.log(error)
+            }
         }
     }
 
@@ -304,6 +311,8 @@ const AddTool = ({ featuredTools }) => {
                                     <label htmlFor="Free">Free</label>
                                     <input checked={formWithoutCategory.pricing === "Freemium"} onChange={handleFormInput} className='cursor-pointer' type="radio" id="Freemium" name="pricing" value="Freemium" />
                                     <label htmlFor="Freemium">Freemium</label>
+                                    <input checked={formWithoutCategory.pricing === "Subscription"} onChange={handleFormInput} className='cursor-pointer' type="radio" id="Subscription" name="pricing" value="Subscription" />
+                                    <label htmlFor="Subscription">Subscription</label>
                                     <input checked={formWithoutCategory.pricing === "Paid"} onChange={handleFormInput} className='cursor-pointer' type="radio" id="Paid" name="pricing" value="Paid" />
                                     <label htmlFor="Paid">Paid</label>
                                     <input checked={formWithoutCategory.pricing === "Free trial"} onChange={handleFormInput} className='cursor-pointer' type="radio" id="Free trial" name="pricing" value="Free trial" />

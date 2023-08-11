@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react'
 import db from '../firebase'
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { getAuth, signInAnonymously, onAuthStateChanged } from "firebase/auth";
+import nookies from 'nookies'
 
 export default function App({ Component, pageProps }) {
 
@@ -34,18 +35,25 @@ export default function App({ Component, pageProps }) {
 
     const auth = getAuth();
 
-    onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(auth, async (user) => {
       if (user) {
         // User is signed in, see docs for a list of available properties
         // https://firebase.google.com/docs/reference/js/auth.user
         // const uid = user.uid;
         // console.log(uid);
+        const token = await user.getIdToken()
+        nookies.set(undefined, "token", token, {});
         getFeaturedTools()
         // ...
       } else {
         signInAnonymously(auth)
           .then(() => {
             console.log("signed In Anonymously!")
+
+            onAuthStateChanged(auth, async (user) => {
+              const token = await user.getIdToken()
+              nookies.set(undefined, "token", token, {});
+            })
             // Signed in..
           })
           .catch((error) => {

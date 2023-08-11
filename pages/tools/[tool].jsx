@@ -1,25 +1,99 @@
 // import { useRouter } from 'next/router'
 import React, { Fragment } from 'react'
-import db from '../../firebase'
-import toolSlugs from '../../toolSlugs'
+// import db from '../../firebase'
+// import toolSlugs from '../../toolSlugs'
 import { GoLinkExternal } from "react-icons/go"
-import { collection, query, where, getDocs } from "firebase/firestore";
+// import { collection, query, where, getDocs } from "firebase/firestore";
 import Head from 'next/head'
 import { useRouter } from 'next/router';
-// import ProductsList from '../../components/ProductsList'
 import Link from 'next/link';
+import jwt from 'jsonwebtoken';
 
 export const getStaticPaths = async () => {
+    const clientEmail = process.env.FIREBASE_CLIENT_EMAIL
+    const privateKey = process.env.FIREBASE_PRIVATE_KEY
+
+    const jwtToken = jwt.sign(
+        {
+            iss: clientEmail,
+            scope: 'https://www.googleapis.com/auth/cloud-platform',
+            aud: 'https://www.googleapis.com/oauth2/v4/token',
+            iat: parseInt(Date.now() / 1000),
+            exp: parseInt(Date.now() / 1000) + 60 * 60, // 60 minutes
+        },
+        privateKey,
+        {
+            algorithm: 'RS256',
+        }
+    );
+    // console.log("jwt token", jwtToken)
+
+    // Exchange the JWT token for an access token
+    const getAccessToken = async () => {
+        try {
+            const tokenResponse = await fetch('https://www.googleapis.com/oauth2/v4/token', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
+                    assertion: jwtToken,
+                }),
+            });
+
+            const tokenData = await tokenResponse.json();
+            return tokenData.access_token;
+        } catch (error) {
+            console.error('Error:', error);
+            throw error;
+        }
+    };
+
+    const projectId = process.env.FIREBASE_PROJECT_ID;
+    const accessToken = await getAccessToken();
+    // console.log("accessToken: ", accessToken);
 
     // const querySnapshot = await getDocs(collection(db, "tools"));
 
-    // let toolSlugs = []
+    let toolSlugs = []
     // querySnapshot.forEach((doc) => {
     //     toolSlugs = [...toolSlugs, `/tools/${doc.data().slug}`]
     // });
 
-    // CHANGED THE WAY I GOT ALL THE SLUGS DUE TO FIREBASE SECURITY RULES AND I DON'T WANT TO IMPLEMENT API FOR JUST GETTING TOOL SLUGS
-    // Now just get the slugs from toolSlugs.js file and update that file with new toolSlug when adding new tool.
+    const queryBody = {
+        "structuredQuery": {
+            "select": {
+                "fields": [
+                    { fieldPath: "slug" },
+                ]
+            },
+            "from": [
+                { "collectionId": "tools" }
+            ],
+        }
+    }
+
+    try {
+        const response = await fetch(`https://firestore.googleapis.com/v1/projects/${projectId}/databases/(default)/documents:runQuery`, {
+            method: "POST",
+            headers: {
+                Authorization: `Bearer ${accessToken}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(queryBody)
+        })
+
+        const result = await response.json()
+
+        result.forEach(doc => {
+            const fields = doc.document.fields
+            toolSlugs = [...toolSlugs, `/tools/${fields.slug?.stringValue || ""}`]
+        });
+
+    } catch (error) {
+        console.error("Error fetching data:", error);
+    }
 
     return {
         paths: toolSlugs,
@@ -28,16 +102,113 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async (context) => {
+    const clientEmail = process.env.FIREBASE_CLIENT_EMAIL
+    const privateKey = process.env.FIREBASE_PRIVATE_KEY
+
+    const jwtToken = jwt.sign(
+        {
+            iss: clientEmail,
+            scope: 'https://www.googleapis.com/auth/cloud-platform',
+            aud: 'https://www.googleapis.com/oauth2/v4/token',
+            iat: parseInt(Date.now() / 1000),
+            exp: parseInt(Date.now() / 1000) + 60 * 60, // 60 minutes
+        },
+        privateKey,
+        {
+            algorithm: 'RS256',
+        }
+    );
+    // console.log("jwt token", jwtToken)
+
+    // Exchange the JWT token for an access token
+    const getAccessToken = async () => {
+        try {
+            const tokenResponse = await fetch('https://www.googleapis.com/oauth2/v4/token', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer',
+                    assertion: jwtToken,
+                }),
+            });
+
+            const tokenData = await tokenResponse.json();
+            return tokenData.access_token;
+        } catch (error) {
+            console.error('Error:', error);
+            throw error;
+        }
+    };
+
+    const projectId = process.env.FIREBASE_PROJECT_ID;
+    const accessToken = await getAccessToken();
+    // console.log("accessToken: ", accessToken);
 
     const toolSlug = context.params.tool
 
-    const q = query(collection(db, "tools"), where("slug", "==", toolSlug));
+    const queryBody = {
+        "structuredQuery": {
+            "select": {
+                "fields": [
+                    { fieldPath: "index" },
+                    { fieldPath: "title" },
+                    { fieldPath: "slug" },
+                    { fieldPath: "image" },
+                    { fieldPath: "description" },
+                    { fieldPath: "pricing" },
+                    { fieldPath: "category" },
+                    { fieldPath: "visit" },
+                ]
+            },
+            "from": [
+                { "collectionId": "tools" }
+            ],
+            "where": {
+                "fieldFilter": {
+                    "field": { "fieldPath": "slug" },
+                    "op": "EQUAL",
+                    "value": { "stringValue": toolSlug }
+                }
+            },
+            "limit": 1 // You can remove this if you expect multiple matches or want to retrieve more than one document
+        }
+    }
 
     let tool = {}
-    const querySnapshot = await getDocs(q);
-    querySnapshot.forEach((doc) => {
-        tool = doc.data()
-    });
+
+    try {
+        const response = await fetch(`https://firestore.googleapis.com/v1/projects/${projectId}/databases/(default)/documents:runQuery`, {
+            method: "POST",
+            headers: {
+                Authorization: `Bearer ${accessToken}`,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(queryBody)
+        })
+
+        const result = await response.json()
+
+        result.forEach(doc => {
+            const fields = doc.document.fields
+            tool = {
+                "index": fields.index?.integerValue || 5000,
+                "title": fields.title?.stringValue || "",
+                "slug": fields.slug?.stringValue || "",
+                "image": fields.image?.stringValue || "",
+                "description": fields.description?.stringValue || "",
+                "pricing": fields.pricing?.stringValue || "",
+                "category": fields.category.arrayValue?.values.map((value) => value.stringValue) || [],
+                "visit": fields.visit?.stringValue || "",
+            }
+        });
+
+    } catch (error) {
+        console.error("Error fetching data:", error);
+    }
+
+    // const q = query(collection(db, "tools"), where("slug", "==", toolSlug));
 
     return {
         props: { tool: tool }
