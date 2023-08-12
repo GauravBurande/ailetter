@@ -5,6 +5,7 @@ import { getAuth, signInWithPopup } from "firebase/auth";
 import { doc, updateDoc, setDoc, query, orderBy, limit, collection, getDocs } from "firebase/firestore";
 import { Toaster, toast } from 'sonner'
 import { RiDeleteBinLine } from 'react-icons/ri'
+import Category from '../components/Category';
 
 import Head from "next/head"
 import { Fragment, useEffect, useState } from "react"
@@ -239,6 +240,29 @@ const AddTool = ({ featuredTools }) => {
         }
     }
 
+    const runBuild = async () => {
+        const deployHookIdentifier = process.env.NEXT_PUBLIC_DEPLOY_HOOK_IDENTIFIER
+        const run = confirm("Do you really want to run build command?")
+
+        if (run) {
+            try {
+                const response = await fetch(`https://api.vercel.com/v1/integrations/deploy/${deployHookIdentifier}`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                })
+                const result = await response.json()
+                console.info("Starting the build process..." + " id: " + result.job.id + ", state: " + result.job.state)
+                toast.message("Starting the build process...", {
+                    description: `id: ${result.job.id},\n  state: ${result.job.state}`
+                })
+            } catch (error) {
+                console.error("Error: " + error)
+            }
+        }
+    }
+
     return (
         <Fragment>
             <Head>
@@ -324,6 +348,10 @@ const AddTool = ({ featuredTools }) => {
                     </div>
 
                     <div className='md:w-5/12 w-full flex flex-col md:min-h-[87vh] items-center gap-8 justify-between'>
+                        <div className='flex w-full items-center justify-between'>
+                            <button onClick={runBuild} className='bg-orange-400 mt-auto w-fit p-3 hover:bg-transparent hover:outline-dashed uppercase'>Trigger Build</button>
+                            <button onClick={handleSignOut} className='bg-orange-400 mt-auto w-fit p-3 hover:bg-transparent hover:outline-dashed uppercase'>Sign Out</button>
+                        </div>
                         <div className='w-full h-full'>
                             <p className='text-2xl py-10 font-semibold'>Featured Tools</p>
                             {
@@ -352,7 +380,6 @@ const AddTool = ({ featuredTools }) => {
                                 <button disabled={featureInput === ''} className='bg-gray-100 flex items-center hover:bg-gray-200 px-4 py-1 outline outline-1 rounded-[1px]' type="submit">add</button>
                             </form>
                         </div>
-                        <button onClick={handleSignOut} className='bg-orange-400 mt-auto w-fit p-3 hover:bg-transparent hover:outline-dashed uppercase'>Sign Out</button>
                     </div>
                 </div>}
 
@@ -360,6 +387,7 @@ const AddTool = ({ featuredTools }) => {
                 <p>Currently only Owner can access this page! Don&apos;t mind signing in if you&apos;re a user!</p>
                 <button onClick={signIn} className='bg-orange-400 uppercase w-fit p-3 hover:bg-transparent hover:outline-dashed'>Sign In</button>
             </div>}
+            <Category />
         </Fragment>
     )
 }

@@ -3,8 +3,8 @@ import { Fragment } from "react"
 const Hero = () => {
     return (
         <Fragment>
-            <section className='px-10 py-2 flex items-center flex-wrap lg:flex-nowrap justify-center gap-10'>
-                <div className='lg:w-1/4 bg-white w-full'>
+            <section className='px-10 lg:pt-10 py-2 flex items-center flex-wrap lg:flex-nowrap justify-center gap-10'>
+                <div className='lg:w-2/5 bg-white w-full'>
                     <p className='text-center pt-2 px-2'>Get to know what&apos;s happening in AI bubble. <span className='font-semibold'>subscribe to ailetter</span></p>
                     <iframe className='w-full h-40' src="https://ailetter.substack.com/embed" frameBorder="0" scrolling="no"></iframe>
                     <div className='bg-white -translate-y-11 h-8'></div>
