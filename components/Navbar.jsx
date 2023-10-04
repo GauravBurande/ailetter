@@ -29,7 +29,7 @@ const Navbar = () => {
                         <ul className='md:flex text-lg md:text-sm lg:text-lg hidden gap-5 items-center justify-center'>
                             <Link href={'/promptgallery'} className='hover:underline hover:underline-offset-2'>PromptGallery</Link>
                             <Link href={'/incomeideas'} className='hover:underline hover:underline-offset-2'>IncomeIdeas</Link>
-                            <a className='hover:underline hover:underline-offset-2' href="https://ailetter.substack.com/" target='_blank'>NewsLetter</a>
+                            {/* <a className='hover:underline hover:underline-offset-2' href="https://ailetter.substack.com/" target='_blank'>NewsLetter</a> */}
                             <Link href={'/submit'} className='hover:underline hover:underline-offset-2'>Submit/Sponsor</Link>
                         </ul>
                     </div>
@@ -38,7 +38,7 @@ const Navbar = () => {
                     <ul className='flex bg-orange-400 text-white pb-8 px-10 flex-col text-lg gap-5 justify-center'>
                         <Link href={'/promptgallery'} className='hover:underline hover:underline-offset-2'>PromptGallery</Link>
                         <Link href={'/incomeideas'} className='hover:underline hover:underline-offset-2'>IncomeIdeas</Link>
-                        <a className='hover:underline hover:underline-offset-2' href="https://ailetter.substack.com/" target='_blank'>NewsLetter</a>
+                        {/* <a className='hover:underline hover:underline-offset-2' href="https://ailetter.substack.com/" target='_blank'>NewsLetter</a> */}
                         <Link href={'/submit'} className='hover:underline hover:underline-offset-2'>Submit/Sponsor</Link>
                     </ul>
                 </div>}

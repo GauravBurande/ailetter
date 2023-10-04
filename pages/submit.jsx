@@ -7,19 +7,19 @@ const Submit = () => {
         {
             "title": "basic",
             "payment type": "one time",
-            "amount": 0,
+            "amount": 10.00,
             "plan offerings": [
                 "listed on the latest tools section",
                 "it may take time due to queued submission reviews, the estimated waiting time is about 30+ days",
                 "no updates available",
             ],
             "button call": "submit now",
-            "button url": "mailto:ailetter.substack@gmail.com?subject=Submit my tool to ailetter!",
+            "button url": "https://mommyai.lemonsqueezy.com/checkout/buy/0c8b11aa-78cc-43af-bc91-6dd3e7c407f4",
         },
         {
             "title": "get featured",
             "payment type": "one time",
-            "amount": 9.99,
+            "amount": 15.00,
             "plan offerings": [
                 "listed on the site within 24 hours",
                 "requested upadates available",
@@ -27,21 +27,20 @@ const Submit = () => {
                 "visible in the featured section for a week"
             ],
             "button call": "submit now",
-            "button url": "mailto:ailetter.substack@gmail.com?subject=Feature my tool!",
+            "button url": "https://mommyai.lemonsqueezy.com/checkout/buy/0c8b11aa-78cc-43af-bc91-6dd3e7c407f4",
         },
         {
             "title": "sponsor",
             "payment type": "one time",
-            "amount": 15.99,
+            "amount": 25.00,
             "plan offerings": [
                 "listed on the site within 24 hours",
                 "requested upadates available",
                 "featured on top of the site",
                 "visible in the featured section for a month",
-                "featured in our weekly newsletter"
             ],
             "button call": "submit now",
-            "button url": "mailto:ailetter.substack@gmail.com?subject=I'm sposoring the ailetter!",
+            "button url": "https://mommyai.lemonsqueezy.com/checkout/buy/0c8b11aa-78cc-43af-bc91-6dd3e7c407f4",
         },
     ]
 
@@ -99,7 +98,7 @@ const Submit = () => {
                                         })}
                                     </div>
                                 </div>
-                                <a href={plan['button url']}>
+                                <a target='_blank' href={plan['button url']}>
                                     <button className='bg-white w-full px-3 hover:bg-black hover:text-white py-2'>{plan['button call']}</button>
                                 </a>
                             </div>
