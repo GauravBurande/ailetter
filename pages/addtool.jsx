@@ -48,14 +48,14 @@ const AddTool = ({ featuredTools }) => {
     const [featureInput, setFeatureInput] = useState('')
     const [webpImageInfo, setWebImageInfo] = useState({})
 
-    const owner = "ailetter.substack@gmail.com" || "njr795453@gmail.com";
+    const owner = "ailetter.substack@gmail.com";
 
     const signIn = async () => {
         const auth = getAuth();
         signInWithPopup(auth, googleAuthProvider)
             .then((result) => {
                 const user = result.user;
-                if (user.email === owner) {
+                if (user.email === owner || "njr795453@gmail.com") {
                     setUserIsOwner(true);
                 } else {
                     toast.error("Sorry, you are not allowed to access this page.");
