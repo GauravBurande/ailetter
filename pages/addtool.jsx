@@ -48,7 +48,7 @@ const AddTool = ({ featuredTools }) => {
     const [featureInput, setFeatureInput] = useState('')
     const [webpImageInfo, setWebImageInfo] = useState({})
 
-    const owner = "ailetter.substack@gmail.com" || "suryangsuchandra39@gmail.com";
+    const owner = "ailetter.substack@gmail.com" || "njr795453@gmail.com";
 
     const signIn = async () => {
         const auth = getAuth();
