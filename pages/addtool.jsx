@@ -55,7 +55,7 @@ const AddTool = ({ featuredTools }) => {
         signInWithPopup(auth, googleAuthProvider)
             .then((result) => {
                 const user = result.user;
-                if (user.email === owner || "njr795453@gmail.com") {
+                if (user.email === owner) {
                     setUserIsOwner(true);
                 } else {
                     toast.error("Sorry, you are not allowed to access this page.");
