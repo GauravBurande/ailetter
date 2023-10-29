@@ -48,7 +48,7 @@ const AddTool = ({ featuredTools }) => {
     const [featureInput, setFeatureInput] = useState('')
     const [webpImageInfo, setWebImageInfo] = useState({})
 
-    const owner = process.env.OWNER;
+    const owner = process.env.NEXT_PUBLIC_OWNER;
 
     const signIn = async () => {
         const auth = getAuth();
