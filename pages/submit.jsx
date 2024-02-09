@@ -14,7 +14,7 @@ const Submit = () => {
                 "no updates available",
             ],
             "button call": "submit now",
-            "button url": "https://mommyai.lemonsqueezy.com/checkout/buy/3933be25-14b7-46d2-9176-6e84e25171f1",
+            // "button url": "https://mommyai.lemonsqueezy.com/checkout/buy/3933be25-14b7-46d2-9176-6e84e25171f1",
         },
         {
             "title": "get featured",
@@ -27,7 +27,7 @@ const Submit = () => {
                 "visible in the featured section for a week"
             ],
             "button call": "submit now",
-            "button url": "https://mommyai.lemonsqueezy.com/checkout/buy/0c8b11aa-78cc-43af-bc91-6dd3e7c407f4",
+            // "button url": "https://mommyai.lemonsqueezy.com/checkout/buy/0c8b11aa-78cc-43af-bc91-6dd3e7c407f4",
         },
         {
             "title": "sponsor",
@@ -40,7 +40,7 @@ const Submit = () => {
                 "visible in the featured section for a month",
             ],
             "button call": "submit now",
-            "button url": "https://mommyai.lemonsqueezy.com/checkout/buy/ebdbdec4-4000-4b27-8ba7-cfcdc6bb4c67",
+            // "button url": "https://mommyai.lemonsqueezy.com/checkout/buy/ebdbdec4-4000-4b27-8ba7-cfcdc6bb4c67",
         },
     ]
 
@@ -98,9 +98,7 @@ const Submit = () => {
                                         })}
                                     </div>
                                 </div>
-                                <a target='_blank' href={plan['button url']}>
-                                    <button className='bg-white w-full px-3 hover:bg-black hover:text-white py-2'>{plan['button call']}</button>
-                                </a>
+                                    <button onClick={() => {alert("this project is no longer maintained")}} className='bg-white w-full px-3 hover:bg-black hover:text-white py-2'>{plan['button call']}</button>
                             </div>
                         )
                     })
